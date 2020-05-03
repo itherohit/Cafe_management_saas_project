@@ -11,6 +11,7 @@ const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 const main = document.getElementById('main-section');
 
+
 signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
 });
