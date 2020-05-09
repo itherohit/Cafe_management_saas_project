@@ -126,81 +126,11 @@
     <section class="Menu-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3 menu-category">
-                    <div class="menu-category-name">
-                        <h3>Burgers</h3>
-                    </div>
-                    <div class="menu-category-name">
-                        <h3>Pizza</h3>
-                    </div>
-                    <div class="menu-category-name">
-                        <h3>Pasta</h3>
-                    </div>
-                    <div class="menu-category-name">
-                        <h3>Shakes</h3>
-                    </div>
+                <div class="col-lg-3 col-sm-12 menu-category">
+                 <%= render partial: "category-section", locals:{category: Category.all} %>
                 </div>
-                <div class="col-6 menu-item-section">
-                    <div class="menu-items">
-                        <div class="row justify-content-center">   
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="menu-card">
-                                    <img class="menu-item-img-src" src="<%= asset_path('burger.jpg') %>" alt="BURGER" width="600" height="400">
-                                        <div class="menu-item-name">
-                                            <h3 class="menu-item-name-header">Burger cbksmn efsdzkb helloejf chih</h3>
-                                            <p class="menu-item-name-para">isbcbsuabcdibdcisdbcdjvchdsdjcdhisbcbsuabcdibdcisdbc djvchd sdjcdh isbcbsuabcd ibdcisdbc djvchd sdjcdh<p>
-                                            <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> 180.00</h3>
-                                            <div class="menu-item-order-now">
-                                                <a class="menu-item-order-now-link" href="#">Add to Cart</a>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 ">
-                            <div class="menu-card">
-                            <img class="menu-item-img-src" src="<%= asset_path('burger.jpg') %>" alt="BURGER" width="600" height="400">
-                            <div class="menu-item-name">
-                            <h3 class="menu-item-name-header">Burger cbksmn hkkkxkadbvd sdkbvjdbvd kdsvbjdbd kdjbcdkjc dkjbkb kb </h3>
-                            <p class="menu-item-name-para">isbcbsuabcd ibdcisdbc djvchd sdjcdh<p>
-                            </div>
-                            <div class="menu-price">
-                            </div>
-                            </div>
-
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                            <div class="menu-card">
-
-                                </div>
-
-                            </div>
-                            <div class="col-lg-3 col-sm-6">
-                            <div class="menu-card">
-
-                                </div>
-
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="menu-items ">
-                        <div class="row justify-content-center">
-                
-                            <div class="col-lg-3 col-sm-6 menu-col ">
-                                <div class="menu-card">
-
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 menu-col ">
-                            <div class="menu-card">
-
-                                </div>
-                            </div>
-                            </div>
-                        
-                    </div>
-                </div>
-                <div class="col-3 hello">
+                <div class="col-lg-8 col-sm-12 menu-item-section">
+                            <%= render partial: "menu-card-section", locals:{menu: MenuItem.all} %>   
                 </div>
             </div>
         </div>
