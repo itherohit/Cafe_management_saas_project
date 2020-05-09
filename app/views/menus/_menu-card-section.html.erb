@@ -1,25 +1,32 @@
-<% i = 1 %>
-<% menu.each do |menu| %>
-<% if i%4 == 1 %>
-<div class="menu-items">
-<div class="row justify-content-center">
-<% end %>
-<div class="col-lg-3 col-sm-6">
-<div class="menu-card">
-    <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
-    <div class="menu-item-name">
-        <h3 class="menu-item-name-header"><%= menu.item_name %></h3>
-        <p class="menu-item-name-para"><%= menu.item_desciption %><p>
-        <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
-        <div class="menu-item-order-now">
+<% category.each do |category| %>
+  <% menu = category.menu_items %>
+  <div class="menu-items" id=<%= category.name[0] %>>
+    <div class="row justify-content-center">
+      <% i = 1 %>
+      <% menu.each do |menu| %>
+      <% if i%4 == 1 && i!=1%>
+        <div class="menu-items">
+        <div class="row justify-content-center">
+    <% end %>
+    <div class="col-lg-3 col-sm-6">
+      <div class="menu-card">
+        <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
+        <div class="menu-item-name">
+          <h3 class="menu-item-name-header"><%= menu.item_name %></h3>
+          <p class="menu-item-name-para"><%= menu.item_desciption %><p>
+          <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
+          <div class="menu-item-order-now">
             <a class="menu-item-order-now-link" href="#">Add to Cart</a>
+          </div>
         </div>
     </div>
+  </div>
+  <% if i%4 == 1 && i!=1%>
+  </div>
+  </div>
+  <% end %>
+  <% i = i+1 %>
+<% end %>
 </div>
 </div>
-    <% i = i+1 %>
-    <% if i%4 == 1 %>
-    </div>
-    </div>
-    <% end %>
- <% end %>
+<% end %>

@@ -126,11 +126,11 @@
     <section class="Menu-section">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3 col-sm-12 menu-category">
+                <div class="col-lg-4 col-sm-12 menu-category">
                  <%= render partial: "category-section", locals:{category: Category.all} %>
                 </div>
                 <div class="col-lg-8 col-sm-12 menu-item-section">
-                            <%= render partial: "menu-card-section", locals:{menu: MenuItem.all} %>   
+                <%= render partial: "menu-card-section", locals:{category: Category.all} %>   
                 </div>
             </div>
         </div>

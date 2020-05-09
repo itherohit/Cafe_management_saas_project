@@ -1,5 +1,7 @@
 <% category.each do |category| %>
     <div class="menu-category-name">
-        <h3><%= category.name %></h3>
+      <div class="menu-category-name-link">
+        <a href="#<%= category.name[0] %>"><%= category.name %></a>
+      </div>
     </div>
 <% end %>
