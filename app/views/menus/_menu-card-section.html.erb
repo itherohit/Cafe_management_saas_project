@@ -1,5 +1,5 @@
 <% category.each do |category| %>
-  <% menu = category.menu_items %>
+  <% menu = category.menu_items.name_sort %>
   <div class="menu-items" id=<%= category.name[0] %>>
     <div class="row justify-content-center">
       <% i = 1 %>
@@ -16,7 +16,7 @@
           <p class="menu-item-name-para"><%= menu.item_desciption %><p>
           <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
           <div class="menu-item-order-now">
-            <a class="menu-item-order-now-link" href="#">Add to Cart</a>
+            <a class="menu-item-order-now-link add-cart" href="#/">Add to Cart</a>
           </div>
         </div>
     </div>

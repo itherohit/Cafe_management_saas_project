@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Foddy Buddy</title>
+    <title>Foody Blinders</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Caveat&display=swap" rel="stylesheet">
@@ -23,5 +23,6 @@
   <body>
     <%= yield %>
     <%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
-    </body>
+    <%= javascript_pack_tag 'menu', 'data-turbolinks-track': 'reload' %>
+  </body>
 </html>

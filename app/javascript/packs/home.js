@@ -45,6 +45,3 @@ function popup() {
         });
     }
 };
-
-
-console.log("custom js file loaded")

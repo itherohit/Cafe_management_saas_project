@@ -1,0 +1,241 @@
+[{
+        "id": 10,
+        "item_name": "Cheesy Garlic Beard",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/starters/cheesy+garlic+bread.jpg",
+        "price": 110.0,
+        "item_desciption": "Bread topped with herbs, garlic and olive oil.",
+        "created_at": "2020-05-09T07:21:21.795Z",
+        "updated_at": "2020-05-09T09:10:29.502Z",
+        "category_id": 7
+    },
+    {
+        "id": 12,
+        "item_name": "Nachos to the Rescue",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/starters/nachos.jpg",
+        "price": 110.0,
+        "item_desciption": "Nachos top-up with veggies and cheese mayo dressing.",
+        "created_at": "2020-05-09T07:42:00.821Z",
+        "updated_at": "2020-05-09T09:11:40.440Z",
+        "category_id": 7
+    },
+    {
+        "id": 11,
+        "item_name": "Zucchini Fries",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/starters/fritters.jpg",
+        "price": 140.0,
+        "item_desciption": "Deep fried French fries with peri peri seasoning.",
+        "created_at": "2020-05-09T07:38:04.396Z",
+        "updated_at": "2020-05-09T09:10:47.629Z",
+        "category_id": 7
+    },
+    {
+        "id": 16,
+        "item_name": "Cheesy Island",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/burger/1000+island.jpg",
+        "price": 150.0,
+        "item_desciption": "Smoked cottage cheese patty burger",
+        "created_at": "2020-05-09T09:16:45.101Z",
+        "updated_at": "2020-05-09T09:16:45.101Z",
+        "category_id": 8
+    },
+    {
+        "id": 17,
+        "item_name": "Curious case of Benjamin Burger",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/burger/curious+case.jpg",
+        "price": 170.0,
+        "item_desciption": "Chicken/Veg cheese stuffed patty in mustard sauce",
+        "created_at": "2020-05-09T09:18:47.164Z",
+        "updated_at": "2020-05-09T09:18:47.164Z",
+        "category_id": 8
+    },
+    {
+        "id": 18,
+        "item_name": "Grilled Odyssey",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/burger/odyssey.jpg",
+        "price": 190.0,
+        "item_desciption": "Grilled patty with caramelized onions and mayo sauce",
+        "created_at": "2020-05-09T09:20:03.706Z",
+        "updated_at": "2020-05-09T09:20:03.706Z",
+        "category_id": 8
+    },
+    {
+        "id": 19,
+        "item_name": "Classic Rosemary’s Crust",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pizza/classic+rosemary.jpg",
+        "price": 150.0,
+        "item_desciption": "Ideal blend of pizza sauce and cheese with thin crust.",
+        "created_at": "2020-05-09T09:23:43.935Z",
+        "updated_at": "2020-05-09T09:23:43.935Z",
+        "category_id": 9
+    },
+    {
+        "id": 20,
+        "item_name": "How I Met Your Base",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pizza/how+i+met+your+base.jpg",
+        "price": 165.0,
+        "item_desciption": "Exotic flavours of onions,babycorn,tomato with loaded cheese.",
+        "created_at": "2020-05-09T09:25:10.898Z",
+        "updated_at": "2020-05-09T09:25:10.898Z",
+        "category_id": 9
+    },
+    {
+        "id": 21,
+        "item_name": "Pepperoni Vision",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pizza/pepperoni+vision.jpg",
+        "price": 180.0,
+        "item_desciption": "Balanced flavour of spicy tandoori sauce with veggies.",
+        "created_at": "2020-05-09T09:27:12.487Z",
+        "updated_at": "2020-05-09T09:27:12.487Z",
+        "category_id": 9
+    },
+    {
+        "id": 24,
+        "item_name": "Lasagna Romanoff",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pasta/lasgna.jpg",
+        "price": 200.0,
+        "item_desciption": "Italian cheesy layered pasta and a punch of tangy tomato",
+        "created_at": "2020-05-09T09:35:11.507Z",
+        "updated_at": "2020-05-09T09:35:11.507Z",
+        "category_id": 10
+    },
+    {
+        "id": 22,
+        "item_name": "Penne Arabitta",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pasta/Penne-Arrabiata-square-FS.jpg",
+        "price": 150.0,
+        "item_desciption": "Penne pasta blended with schezwan sauce.",
+        "created_at": "2020-05-09T09:29:38.888Z",
+        "updated_at": "2020-05-09T09:29:38.888Z",
+        "category_id": 10
+    },
+    {
+        "id": 23,
+        "item_name": "Windows n Cheese",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/pasta/windows+n+cheese.jpg",
+        "price": 180.0,
+        "item_desciption": "Macroni flooded with cheese,onions and herbs.",
+        "created_at": "2020-05-09T09:33:20.333Z",
+        "updated_at": "2020-05-09T09:33:20.333Z",
+        "category_id": 10
+    },
+    {
+        "id": 28,
+        "item_name": "Chocolate America",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/icecream/chocolate+america.jpg",
+        "price": 180.0,
+        "item_desciption": "Chocolate cookied icecream topped with nuts.",
+        "created_at": "2020-05-09T09:55:23.843Z",
+        "updated_at": "2020-05-09T09:55:23.843Z",
+        "category_id": 11
+    },
+    {
+        "id": 26,
+        "item_name": "Itsy Bitsy walnut",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/icecream/walnut.jpg",
+        "price": 140.0,
+        "item_desciption": "Lots of walnut immersed in butterscotch ice cream.",
+        "created_at": "2020-05-09T09:52:17.040Z",
+        "updated_at": "2020-05-09T09:52:17.040Z",
+        "category_id": 11
+    },
+    {
+        "id": 25,
+        "item_name": "Raspberry Blow",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/icecream/raspberry.jpg",
+        "price": 110.0,
+        "item_desciption": "Packed with a punch of raspberry with raisins",
+        "created_at": "2020-05-09T09:39:44.640Z",
+        "updated_at": "2020-05-09T09:39:44.640Z",
+        "category_id": 11
+    },
+    {
+        "id": 27,
+        "item_name": "The GreenDale",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/icecream/greendale.jpg",
+        "price": 130.0,
+        "item_desciption": "Fresh pistachio icecream mixed with almonds.",
+        "created_at": "2020-05-09T09:54:00.871Z",
+        "updated_at": "2020-05-09T09:54:00.871Z",
+        "category_id": 11
+    },
+    {
+        "id": 29,
+        "item_name": "Adams Apple",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/mocktail/adams+apple.jpg",
+        "price": 120.0,
+        "item_desciption": "Sun ripped succulent apples with sparkling water.",
+        "created_at": "2020-05-09T09:58:27.193Z",
+        "updated_at": "2020-05-09T09:58:27.193Z",
+        "category_id": 12
+    },
+    {
+        "id": 32,
+        "item_name": "Blueberg",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/mocktail/blueberg.jpg",
+        "price": 180.0,
+        "item_desciption": "Energy boosting mocktail with sweet strawberry and lime",
+        "created_at": "2020-05-09T10:11:44.998Z",
+        "updated_at": "2020-05-09T10:11:44.998Z",
+        "category_id": 12
+    },
+    {
+        "id": 31,
+        "item_name": "Not So Bloody Mary",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/mocktail/not+so+bloody+mary.jpg",
+        "price": 150.0,
+        "item_desciption": "A twist of classic mojito with raspberries and fresh mint.",
+        "created_at": "2020-05-09T10:05:36.534Z",
+        "updated_at": "2020-05-09T10:05:36.534Z",
+        "category_id": 12
+    },
+    {
+        "id": 30,
+        "item_name": "Pulp fiction",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/mocktail/pulp+fiction.jpg",
+        "price": 140.0,
+        "item_desciption": "Naturally sweet and tangy pineapples and oranges juice.",
+        "created_at": "2020-05-09T10:01:54.478Z",
+        "updated_at": "2020-05-09T10:01:54.478Z",
+        "category_id": 12
+    },
+    {
+        "id": 35,
+        "item_name": "Forrest Gulp",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/thickshakes/forrest+gulp.jpg",
+        "price": 200.0,
+        "item_desciption": "Classic peanut butter shake.",
+        "created_at": "2020-05-09T10:21:03.354Z",
+        "updated_at": "2020-05-09T10:21:03.354Z",
+        "category_id": 13
+    },
+    {
+        "id": 33,
+        "item_name": "IrishFreeze",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/thickshakes/irishfreeze.jpg",
+        "price": 150.0,
+        "item_desciption": "Exotic mix of caramel and cream.",
+        "created_at": "2020-05-09T10:17:15.993Z",
+        "updated_at": "2020-05-09T10:17:15.993Z",
+        "category_id": 13
+    },
+    {
+        "id": 34,
+        "item_name": "Nutty Therapist",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/thickshakes/nutty+therapist.jpg",
+        "price": 170.0,
+        "item_desciption": "Dry nuts shake flooded with nutella.",
+        "created_at": "2020-05-09T10:19:01.003Z",
+        "updated_at": "2020-05-09T10:19:01.003Z",
+        "category_id": 13
+    },
+    {
+        "id": 36,
+        "item_name": "Oreo coffee",
+        "img_url": "https://cafe-management.s3-ap-northeast-1.amazonaws.com/Menu+Images/thickshakes/oreo.jpg",
+        "price": 220.0,
+        "item_desciption": "An addictive oreo crumble shake blened with cocoa.",
+        "created_at": "2020-05-09T10:22:40.984Z",
+        "updated_at": "2020-05-09T10:22:40.984Z",
+        "category_id": 13
+    }
+]

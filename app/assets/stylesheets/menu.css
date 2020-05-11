@@ -252,3 +252,38 @@
         z-index: 2;
     }
 }
+
+.menu-category {
+    position: relative;
+}
+
+.cart {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    font-size: 25vh;
+    color: #F73859;
+    transform: rotate(-15deg);
+    filter: opacity(30%);
+    text-align: center;
+}
+
+.cart-number-circle {
+    position: absolute;
+    right: 10%;
+    top: 15%;
+    width: 5vh;
+    height: 5vh;
+    background-color: #F73859;
+    border-radius: 200px;
+}
+
+.cart-number {
+    font-family: 'Roboto', sans-serif;
+    margin: auto;
+    color: white;
+    margin-right: 24%;
+    margin-top: 21%;
+    font-size: 3vh;
+    font-weight: bold;
+}
