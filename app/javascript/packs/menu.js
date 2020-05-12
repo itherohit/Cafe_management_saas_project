@@ -31,14 +31,70 @@ function cartNumber(item) {
         localStorage.setItem('cartNumber', 1);
         document.querySelector('.cart-number').innerHTML = 1;
     }
+    itemList(item);
+}
+
+
+function itemList(item) {
+    let item_list = localStorage.getItem('itemList');
+    if (item_list) {
+        var incartNumber = 0;
+        item_list = JSON.parse(item_list);
+        for (let i = 0; i < item_list.length; i++) {
+            if (item_list[i].id === item.id) {
+                item_list[i].incart += 1;
+                incartNumber = 1;
+            }
+        }
+        if (incartNumber === 0) {
+            item.incart = 1;
+            item_list.push(item);
+        }
+        console.log(item_list);
+        localStorage.setItem('itemList', JSON.stringify(item_list));
+
+    } else {
+        var items = [];
+        item["incart"] = 1;
+        items.push(item);
+        localStorage.setItem('itemList', JSON.stringify(items));
+    }
+}
+
+
+function displayItems() {
+    let items = localStorage.getItem('itemList');
+    items = JSON.parse(items);
+    let itemContainer = document.querySelector('.cart-box-items');
+    if (items && itemContainer) {
+        itemContainer.innerHTML = '';
+        Object.values(items).map(item => {
+            itemContainer.innerHTML += `
+            <div class="cart-box-item-sec">
+            <button class="cancel-icon"><i class="far fa-times-circle "></i></button>
+            <p class="cart-box-item-para" >${item.item_name}</p>
+            <p class="cart-box-item-price"><i class="fas fa-rupee-sign"></i> ${item.price}</p>
+            <div class="cart-box-item-quantity">
+              <button class="quantity-icon"><i class="fas fa-minus-circle"></i></button>
+              <p class="cart-box-item-quantity-number">${item.incart}</p>
+              <button class="quantity-icon"><i class="fas fa-plus-circle"></i></button>
+            </div>
+            <p class="cart-box-item-total">${item.price * item.incart}</p>
+          </div>
+          `
+        })
+    }
+
 }
 
 function onloadcartNumber() {
     let itemNumber = localStorage.getItem('cartNumber');
-    if (itemNumber) {
-        document.querySelector('.cart-number').innerHTML = itemNumber;
+    let cartNumberContainer = document.querySelector('.cart-number')
+    if (itemNumber && cartNumberContainer) {
+        cartNumberContainer.innerHTML = itemNumber;
     }
 }
 
 get_menu_json()
 onloadcartNumber()
+displayItems()
