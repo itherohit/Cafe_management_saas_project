@@ -62,30 +62,7 @@ function itemList(item) {
 }
 
 
-function displayItems() {
-    let items = localStorage.getItem('itemList');
-    items = JSON.parse(items);
-    let itemContainer = document.querySelector('.cart-box-items');
-    if (items && itemContainer) {
-        itemContainer.innerHTML = '';
-        Object.values(items).map(item => {
-            itemContainer.innerHTML += `
-            <div class="cart-box-item-sec">
-            <button class="cancel-icon"><i class="far fa-times-circle "></i></button>
-            <p class="cart-box-item-para" >${item.item_name}</p>
-            <p class="cart-box-item-price"><i class="fas fa-rupee-sign"></i> ${item.price}</p>
-            <div class="cart-box-item-quantity">
-              <button class="quantity-icon"><i class="fas fa-minus-circle"></i></button>
-              <p class="cart-box-item-quantity-number">${item.incart}</p>
-              <button class="quantity-icon"><i class="fas fa-plus-circle"></i></button>
-            </div>
-            <p class="cart-box-item-total">${item.price * item.incart}</p>
-          </div>
-          `
-        })
-    }
 
-}
 
 function onloadcartNumber() {
     let itemNumber = localStorage.getItem('cartNumber');
@@ -93,6 +70,90 @@ function onloadcartNumber() {
     if (itemNumber && cartNumberContainer) {
         cartNumberContainer.innerHTML = itemNumber;
     }
+}
+
+
+let items = JSON.parse(localStorage.getItem('itemList'));
+
+function btnEvent() {
+    var plusBtn = document.querySelectorAll('.btn-plus');
+    var minusBtn = document.querySelectorAll('.btn-minus');
+    var delBtn = document.querySelectorAll('.btn-delete');
+    for (let i = 0; i < plusBtn.length; i++) {
+        plusBtn[i].addEventListener('click', () => {
+            items[i].incart += 1;
+            document.querySelectorAll('.cart-box-item-quantity-number')[i].innerHTML = items[i].incart;
+            document.querySelectorAll('.cart-box-item-total')[i].innerHTML = items[i].incart * items[i].price;
+            totalCost();
+        })
+        minusBtn[i].addEventListener('click', () => {
+            items[i].incart -= 1;
+            if (items[i].incart) {
+                document.querySelectorAll('.cart-box-item-quantity-number')[i].innerHTML = items[i].incart;
+                document.querySelectorAll('.cart-box-item-total')[i].innerHTML = items[i].incart * items[i].price;
+                totalCost();
+            } else {
+                items = items.slice(0, i).concat(items.slice(i + 1, items.length));
+                localStorage.setItem('itemList', JSON.stringify(items));
+                displayItems();
+            }
+
+        })
+        delBtn[i].addEventListener('click', () => {
+            items = items.slice(0, i).concat(items.slice(i + 1, items.length));
+            localStorage.setItem('itemList', JSON.stringify(items));
+            displayItems();
+        })
+    }
+}
+
+function totalCost() {
+    var cost = 0;
+    for (let i = 0; i < items.length; i++) {
+        cost += items[i].price * items[i].incart;
+    }
+    document.querySelector('.cart-box-total-price').innerHTML = cost;
+}
+
+function displayItems() {
+    let items = JSON.parse(localStorage.getItem('itemList'));
+    let itemContainer = document.querySelector('.cart-box-items');
+    if (items[0] && itemContainer) {
+        itemContainer.innerHTML = '';
+        Object.values(items).map(item => {
+            itemContainer.innerHTML += `
+            <div class="cart-box-item-sec">
+            <button class="cancel-icon btn-delete"><i class="far fa-times-circle "></i></button>
+            <p class="cart-box-item-para" >${item.item_name}</p>
+            <p class="cart-box-item-price"><i class="fas fa-rupee-sign"></i> ${item.price}</p>
+            <div class="cart-box-item-quantity">
+              <button class="quantity-icon btn-minus"><i class="fas fa-minus-circle"></i></button>
+              <p class="cart-box-item-quantity-number">${item.incart}</p>
+              <button class="quantity-icon btn-plus"><i class="fas fa-plus-circle"></i></button>
+            </div>
+            <p class="cart-box-item-total">${item.price * item.incart}</p>
+          </div>
+          `
+        })
+    }
+    if (!items[0] && itemContainer) {
+        itemContainer.innerHTML = '';
+        document.querySelector('.cart-box-total').innerHTML = '';
+        itemContainer.innerHTML += `
+        <div class="cart-empty">
+        <p  class="cart-box-empty">Your cart is empty. Are you not Hungry?</p>
+          <a class="cart-box-empty-link" href="/menus">See Menu</a>
+          </div>
+        `
+    }
+    document.querySelector('.cart-box-confirm-link').addEventListener('click', () => {
+        console.log("confirm");
+        console.log(items);
+        localStorage.setItem('itemList', JSON.stringify(items));
+        console.log(localStorage.getItem('itemList'));
+    })
+    totalCost();
+    btnEvent();
 }
 
 get_menu_json()
