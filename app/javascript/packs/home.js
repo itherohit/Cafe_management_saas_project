@@ -45,3 +45,5 @@ function popup() {
         });
     }
 };
+
+setTimeout(popup, 5000);

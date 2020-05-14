@@ -1,0 +1,152 @@
+
+<main class="clerk-Dashboard">>
+    <section class="nav-bar-section">
+        <nav class="navbar navbar-dark nav-color navbar-expand-lg fixed-top">
+            <a class="navbar-brand animated tada delay-5s" href=""><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon nav-button"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="Pending-orders">
+        <div class="container-fluid">
+            <div class="row Pending-orders-row">
+                <div class="col-lg-4 col-sm-12 pending-cards-col justify-content-center">
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header">5</h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Walk-In Customers</h1>
+                        </div>
+                    </div>
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header"><%= Order.pending %></h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Pending Orders</h1>
+                        </div>
+                    </div>
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header"><%= Order.delivered_today %></h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Delivered Today</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 ">
+                    <div class=" Pending-orders-details ">
+                        <div class="clerk-name">
+                            <h1>Hey, Rohit</h1>
+                        </div>
+                        <div class="clerk-sec-date">
+                            <h1>21/05/2020</h1>
+                        </div>
+                        <div class="clerk-sec-time" id="time"></div>
+                        <ul class="clerk-sec-list">
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn border-bottom">Walk-In Orders</button>
+                            </li>
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn">Online Orders</button>
+                            </li>
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn">Delivered</button>
+                            </li>
+                        </ul>
+                        <div class="clerk-sec-pennding-orders visible">
+                            <div class="clerk-sec-pennding-orders-div">
+                                <h1 class="clerk-sec-pennding-orders-header">Online Orders</h1>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <div class="check-tick">
+                                        <input type="checkbox" id="_checkbox">
+                                        <label for="_checkbox">
+                                        <div id="tick_mark"></div>
+                                        </label>
+                                    </div>
+                                    <p class="clerk-sec-pennding-orders-para">Heojoevon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">Heojoevon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">Heojoevon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clerk-sec-pennding-orders ">
+                            <div class="clerk-sec-pennding-orders-div">
+                                <h1 class="clerk-sec-pennding-orders-header">Online Orders</h1>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <div class="check-tick">
+                                        <input type="checkbox" id="_checkbox">
+                                        <label for="_checkbox">
+                                        <div id="tick_mark"></div>
+                                        </label>
+                                    </div>
+                                    <p class="clerk-sec-pennding-orders-para">Heoon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">Heoon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">Heoon</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clerk-sec-pennding-orders ">
+                            <div class="clerk-sec-pennding-orders-div">
+                                <h1 class="clerk-sec-pennding-orders-header">Online Orders</h1>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <div class="check-tick">
+                                        <input type="checkbox" id="_checkbox">
+                                        <label for="_checkbox">
+                                        <div id="tick_mark"></div>
+                                        </label>
+                                    </div>
+                                    <p class="clerk-sec-pennding-orders-para">on</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">on</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                                <div class="clerk-sec-pennding-orders-info">
+                                    <p class="clerk-sec-pennding-orders-para">on</p>
+                                    <p class="clerk-sec-pennding-orders-order">Burger Pizza....</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</main>

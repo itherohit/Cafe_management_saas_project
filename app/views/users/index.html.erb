@@ -5,7 +5,7 @@
                 <div class="sign-logo">
                     <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
                 </div>
-                <form class="sign-form" action="#">
+                <%= form_with(url: "/users", method: "post", html: {class:"sign-form"}) do %>
                     <h1 class="sign-h1">Create Account</h1>
                     <!-- <div class="social-container">
                         <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -13,11 +13,12 @@
                         <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span class="sign-span">or use your email for registration</span> -->
-                    <input class="sign-input" type="text" placeholder="Name" />
-                    <input class="sign-input" type="email" placeholder="Email" />
-                    <input class="sign-input" type="password" placeholder="Password" />
-                    <button class="sign-btn">Sign Up</button>
-                </form>
+                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" />
+                    <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
+                    <input class="sign-input" type="email"  name="email" placeholder="Email" />
+                    <input class="sign-input" type="password"name="password"  placeholder="Password" />
+                    <button type="submit" class="sign-btn">Sign Up</button>
+                <% end %>
             </div>
             <div class="form-container sign-in-container">
                 <div class="sign-logo">
