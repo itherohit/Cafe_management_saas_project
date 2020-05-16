@@ -1,3 +1,12 @@
+let add_cart = document.querySelectorAll('.add-cart');
+
+for (let i = 0; i < add_cart.length; i++) {
+    add_cart[i].addEventListener('click', () => {
+        add_cart[i].innerHTML = "Add Again !";
+    })
+}
+
+
 function get_menu_json() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -6,7 +15,7 @@ function get_menu_json() {
             addcart(menu_json);
         }
     };
-    xhttp.open("GET", "/menuitems/new", true);
+    xhttp.open("GET", "/menus/new", true);
     xhttp.send();
 }
 

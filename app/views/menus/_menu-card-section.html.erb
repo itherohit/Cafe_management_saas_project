@@ -16,7 +16,11 @@
           <p class="menu-item-name-para"><%= menu.item_desciption %><p>
           <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
           <div class="menu-item-order-now">
+          <% if @current_user %>
             <a class="menu-item-order-now-link add-cart" href="#/">Add to Cart</a>
+          <% else %>
+            <a class="menu-item-order-now-link add-cart-sign" href="#/" >Add to Cart</a>
+          <% end %>
           </div>
         </div>
     </div>

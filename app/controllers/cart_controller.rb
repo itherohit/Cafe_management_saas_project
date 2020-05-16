@@ -5,7 +5,7 @@ class CartController < ApplicationController
     def new
         items = JSON.parse(cookies[:items])
         totalcost = JSON.parse(cookies[:cost])
-        order = Order.create!(cost: totalcost, date: Date.today, user_id: 1, delivered_status: false)
+        order = Order.create!(cost: totalcost, date: Date.today, user_id: @current_user.id, delivered_status: false)
         items.each do |item|
             OrderItem.create!(order_id: order.id, menu_id: item["id"], item_name: item["item_name"], item_price: item["price"], incart: item["incart"])
         end

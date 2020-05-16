@@ -5,7 +5,7 @@
                 <div class="sign-logo">
                     <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
                 </div>
-                <%= form_with(url: "/users", method: "post", html: {class:"sign-form"}) do %>
+                <%= form_with(url: "/users/new", method: "get", html: {class:"sign-form"}) do %>
                     <h1 class="sign-h1">Create Account</h1>
                     <!-- <div class="social-container">
                         <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -13,10 +13,10 @@
                         <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span class="sign-span">or use your email for registration</span> -->
-                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" />
+                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" required/>
                     <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
-                    <input class="sign-input" type="email"  name="email" placeholder="Email" />
-                    <input class="sign-input" type="password"name="password"  placeholder="Password" />
+                    <input class="sign-input" type="email"  name="email" placeholder="Email" required/>
+                    <input class="sign-input" type="password" name="password"  placeholder="Password" required/>
                     <button type="submit" class="sign-btn">Sign Up</button>
                 <% end %>
             </div>
@@ -24,7 +24,7 @@
                 <div class="sign-logo">
                     <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
                 </div>
-                <form class="sign-form" action="#">
+                <%= form_with(url: "/users", method: "post", html: {class:"sign-form"}) do %>
                     <h1 class="sign-h1">Sign in</h1>
                     <!-- <div class="social-container">
                         <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -32,11 +32,11 @@
                         <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                     <span class="sign-span">or use your account</span> -->
-                    <input class="sign-input" type="email" placeholder="Email" />
-                    <input class="sign-input" type="password" placeholder="Password" />
+                    <input class="sign-input" name="email" type="email" placeholder="Email" />
+                    <input class="sign-input" name="password" type="password" placeholder="Password" />
                     <a class="sign-a" href="#">Forgot your password?</a>
                     <button class="sign-btn">Sign In</button>
-                </form>
+                <% end %>
             </div>
             <div class="overlay-container">
                 <div class="overlay">
@@ -58,7 +58,7 @@
     <main id="main-section">
         <section class="nav-bar-section">
             <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-                <a class="navbar-brand animated tada delay-5s" href=""><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+                <a class="navbar-brand animated tada delay-5s" href="/"><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
                 <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon nav-button"></span>
             </button>
@@ -76,9 +76,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact Us</a>
                         </li>
+                        <% if !@current_user %>
                         <li class="nav-item">
                             <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
                         </li>
+                        <% end %>
+                        <% if @current_user %>
+                            <li class="nav-item">
+                                <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
+                            </li>
+                        <% end %>
                     </ul>
                 </div>
             </nav>
@@ -137,9 +144,11 @@
                     <div class="col-lg-6 col-sm-6 Caption">
                         <h1 class="Caption-header">Feeling <span class="hungry">Hungry ?</span></h1>
                         <!-- <p class="Caption-para">Eat what you Deserve</p> -->
+                        
                         <div class="Order-now">
-                            <a class="Order-now-link" href="#"><i class="fas fa-utensils nav-icon nav-icon-order"></i> Order Now</a>
+                            <a class="Order-now-link" href="/menus"><i class="fas fa-utensils nav-icon nav-icon-order"></i> Order Now</a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -212,14 +221,14 @@
                 <div class="col-lg-4 col-md-4 col-sm-12 col-contact">
                     <a class="contact-icon" href="#"><i class="fas fa-utensils nav-icon "></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
                     <h1 class="contact-header1">10 AM - 11 PM</h1>
-                    <p class="contact-para">No 8/3, Elgi Nagar,</p>
-                    <p class="contact-para">singanallur,</p>
-                    <p class="contact-para">Coimbatore - 641111</p>
+                    <p class="contact-para">221B,</p>
+                    <p class="contact-para">Baker Street,</p>
+                    <p class="contact-para">London</p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-contact">
                     <h1 class="contact-header">Connect with Us</h1>
                     <p class="contact-para"><i class="fas fa-phone"></i> 9629028119</p>
-                    <p class="contact-para"><i class="far fa-envelope"></i> mail@gmail.com</p>
+                    <p class="contact-para"><i class="far fa-envelope"></i> foodyblinders@gmail.com</p>
                     <ul class="social-icon-ul">
                         <li class="social-icon-link f"><a><i class="fab fa-facebook social-icon"></i></a></li>
                         <li class="social-icon-link i "><a><i class="fab fa-instagram social-icon"></i></a></li>
@@ -239,8 +248,18 @@
                             <a class="contact-link" href="/menus">Menu</a>
                         </li>
                         <li class="contact-link">
-                            <a class="contact-link" id="sign-in-link-b" href="# ">Sign In</a>
+                            <a class="contact-link" href="#contact">Contact Us</a>
                         </li>
+                        <% if !@current_user %>
+                        <li class="contact-link">
+                            <a class="contact-link" id="sign-in-link" href="#">Sign In</a>
+                        </li>
+                        <% end %>
+                        <% if @current_user %>
+                            <li class="contact-link">
+                                <%= link_to "Sign Out", destroy_session_path, class:"contact-link"%>
+                            </li>
+                        <% end %>
                     </ul>
                 </div>
             </div>

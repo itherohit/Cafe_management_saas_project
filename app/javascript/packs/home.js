@@ -1,6 +1,6 @@
 window.onscroll = () => {
     const nav = document.querySelector('.navbar');
-    if (this.scrollY >= 200)
+    if (window.scrollY >= 200)
         nav.classList.add("nav-scrolled");
     else
         nav.classList.remove("nav-scrolled");
@@ -20,10 +20,15 @@ signInButton.addEventListener('click', () => {
     container.classList.remove("right-panel-active");
 });
 
-document.getElementById('sign-in-link').addEventListener('click', popup, false);
-document.getElementById('sign-in-link-b').addEventListener('click', popup, false);
+let add_cart_sign = document.querySelectorAll('.add-cart-sign');
+
+for (let i = 0; i < add_cart_sign.length; i++) {
+    console.log("run");
+    add_cart_sign[i].addEventListener('click', popup, false);
+}
 
 function popup() {
+    console.log("running");
     container.classList.add("visible");
     container.classList.remove("zoomOut");
     container.classList.add("zoomIn");
@@ -46,4 +51,5 @@ function popup() {
     }
 };
 
-setTimeout(popup, 5000);
+document.getElementById('sign-in-link').addEventListener('click', popup, false);
+document.getElementById('sign-in-link-b').addEventListener('click', popup, false);

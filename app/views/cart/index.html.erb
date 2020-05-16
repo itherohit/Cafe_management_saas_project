@@ -19,9 +19,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
-                    </li>
+                    <% if !@current_user %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
+                        </li>
+                        <% end %>
+                        <% if @current_user %>
+                            <li class="nav-item">
+                                <%= link_to "Sign Out", destroy_session_path, method: "delete", class:"nav-link"%>
+                            </li>
+                        <% end %>
                 </ul>
             </div>
         </nav>
