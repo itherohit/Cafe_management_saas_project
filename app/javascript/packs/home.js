@@ -51,5 +51,14 @@ function popup() {
     }
 };
 
+let navBtn = document.querySelectorAll('.nav-link');
+
+for (let i = 0; i < navBtn.length; i++) {
+    navBtn[i].addEventListener('click', () => {
+        activeBtn = document.querySelector('.active');
+        activeBtn.classList.remove('active');
+        navBtn[i].classList.add('active');
+    })
+}
+
 document.getElementById('sign-in-link').addEventListener('click', popup, false);
-document.getElementById('sign-in-link-b').addEventListener('click', popup, false);

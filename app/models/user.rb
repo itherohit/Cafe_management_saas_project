@@ -1,5 +1,14 @@
 class User < ActiveRecord::Base
-    validates :first_name, presence:true
-    validates :email, presence:true 
+    has_many :orders
     has_secure_password
+
+    def walkin
+        if role == "clerk"
+            return true
+        end
+    end
+
+    def online
+        return true if role == "customer"
+    end
 end

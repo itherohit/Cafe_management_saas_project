@@ -11,4 +11,10 @@ class CartController < ApplicationController
         end
         redirect_to root_path
     end
+
+    def show
+        order = Order.find(params[:id]).order_items
+        render json: order
+    end
+
 end

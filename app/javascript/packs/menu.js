@@ -71,18 +71,23 @@ function itemList(item) {
 }
 
 
-
+let items = JSON.parse(localStorage.getItem('itemList'));
 
 function onloadcartNumber() {
-    let itemNumber = localStorage.getItem('cartNumber');
+    let itemNumber = parseInt(localStorage.getItem('cartNumber'));
     let cartNumberContainer = document.querySelector('.cart-number')
     if (itemNumber && cartNumberContainer) {
-        cartNumberContainer.innerHTML = itemNumber;
+        let sum = 0;
+        for (let i = 0; i < items.length; i++) {
+            sum += items[i].incart;
+        }
+        localStorage.setItem('cartNumber', sum);
+        if (sum === 0)
+            cartNumberContainer.innerHTML = '';
+        else
+            cartNumberContainer.innerHTML = sum;
     }
 }
-
-
-let items = JSON.parse(localStorage.getItem('itemList'));
 
 function btnEvent() {
     var plusBtn = document.querySelectorAll('.btn-plus');
@@ -100,6 +105,7 @@ function btnEvent() {
             if (items[i].incart) {
                 document.querySelectorAll('.cart-box-item-quantity-number')[i].innerHTML = items[i].incart;
                 document.querySelectorAll('.cart-box-item-total')[i].innerHTML = items[i].incart * items[i].price;
+
                 totalCost();
             } else {
                 items = items.slice(0, i).concat(items.slice(i + 1, items.length));
@@ -121,6 +127,7 @@ function totalCost() {
     for (let i = 0; i < items.length; i++) {
         cost += items[i].price * items[i].incart;
     }
+    onloadcartNumber();
     localStorage.setItem('total', cost);
     document.querySelector('.cart-box-total-price').innerHTML = cost;
 }
@@ -128,7 +135,7 @@ function totalCost() {
 function displayItems() {
     let items = JSON.parse(localStorage.getItem('itemList'));
     let itemContainer = document.querySelector('.cart-box-items');
-    if (items && itemContainer) {
+    if (items[0] && itemContainer) {
         itemContainer.innerHTML = '';
         Object.values(items).map(item => {
             itemContainer.innerHTML += `
@@ -146,7 +153,7 @@ function displayItems() {
           `
         })
     }
-    if (!items && itemContainer) {
+    if (!items[0] && itemContainer) {
         itemContainer.innerHTML = '';
         document.querySelector('.cart-box-total').innerHTML = '';
         itemContainer.innerHTML += `

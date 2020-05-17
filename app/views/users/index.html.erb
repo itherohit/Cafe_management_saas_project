@@ -82,6 +82,9 @@
                         </li>
                         <% end %>
                         <% if @current_user %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Orders</a>
+                        </li>
                             <li class="nav-item">
                                 <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
                             </li>

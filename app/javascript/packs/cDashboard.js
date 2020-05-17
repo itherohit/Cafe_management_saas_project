@@ -37,3 +37,27 @@ for (let i = 0; i < clerkBtn.length; i++) {
         clerkSec[i].classList.add('visible');
     })
 }
+
+let order_list = document.querySelectorAll('.clerk-sec-pennding-orders-order');
+
+for (let i = 0; i < order_list.length; i++) {
+    order_list[i].addEventListener('click', () => {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var order_json = JSON.parse(this.responseText);
+                orderitems(order_json);
+            }
+        };
+        xhttp.open("GET", "/cart/" + order_list[i].id, true);
+        xhttp.send();
+    })
+}
+
+function orderitems(order_json) {
+    let list = document.querySelector('.order-list-items');
+    list.innerHTML = '';
+    Object.values(order_json).map(order => {
+        list.innerHTML += `<p class="order-list-items-para">${order.item_name}(x${order.incart})</p>`
+    })
+}

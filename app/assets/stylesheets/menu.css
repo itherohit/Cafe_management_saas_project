@@ -270,21 +270,11 @@
     text-align: center;
 }
 
-.cart-number-circle {
-    position: absolute;
-    right: 4%;
-    width: 3vh;
-    height: 3vh;
-    background-color: #F73859;
-    border-radius: 200px;
-}
-
 .cart-number {
     font-family: 'Roboto', sans-serif;
     position: absolute;
-    margin: auto;
+    left: 50%;
     color: grey;
-    right: 11vh;
     font-size: 0.8rem;
     font-weight: bold;
     color: #F73859;
