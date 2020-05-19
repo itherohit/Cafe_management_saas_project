@@ -16,9 +16,7 @@ class UsersController < ApplicationController
         )
         if user.save
           session[:current_user_id]=user.id
-          redirect_to root_path
-        else
-          flash[:error] = user.errors.full_messages.join(', ')
+          flash[:session] = "Hey, " + params[:first_name].capitalize
           redirect_to root_path
         end
     end
@@ -27,9 +25,10 @@ class UsersController < ApplicationController
       user=User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
           session[:current_user_id] = user.id
+          flash[:session] = "Signed In"
           redirect_to menus_path
       else
-          flash[:error] = "Your Login was Invalid. Retry!"
+          flash[:error] = "Login Invalid"
           redirect_to root_path
       end
     end
@@ -37,6 +36,7 @@ class UsersController < ApplicationController
     def destroy
       session[:current_user_id]=nil
       @current_user = nil
+      flash[:session] = "Signed Out"
       redirect_to root_path
     end
 end

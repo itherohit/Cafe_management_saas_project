@@ -6,6 +6,24 @@ window.onscroll = () => {
         nav.classList.remove("nav-scrolled");
 }
 
+let flash = document.querySelector('.falsh-message ');
+let flashBtn = document.querySelector('.flash-closeBtn');
+if (flashBtn) {
+    flashBtn.addEventListener('click', () => {
+        flash.classList.remove("zoomIn");
+        flash.classList.add("zoomOut");
+        flash.classList.add('invisible');
+        flash.classList.remove("visible");
+    })
+}
+
+if (flash) {
+    flash.classList.remove('invisible');
+    flash.classList.add("visible");
+    flash.classList.remove("zoomOut");
+    flash.classList.add("zoomIn");
+}
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -23,12 +41,10 @@ signInButton.addEventListener('click', () => {
 let add_cart_sign = document.querySelectorAll('.add-cart-sign');
 
 for (let i = 0; i < add_cart_sign.length; i++) {
-    console.log("run");
     add_cart_sign[i].addEventListener('click', popup, false);
 }
 
 function popup() {
-    console.log("running");
     container.classList.add("visible");
     container.classList.remove("zoomOut");
     container.classList.add("zoomIn");

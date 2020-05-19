@@ -153,7 +153,7 @@ function displayItems() {
           `
         })
     }
-    if (!items[0] && itemContainer) {
+    if (!items[0] || !items && itemContainer) {
         itemContainer.innerHTML = '';
         document.querySelector('.cart-box-total').innerHTML = '';
         itemContainer.innerHTML += `

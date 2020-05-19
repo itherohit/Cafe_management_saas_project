@@ -349,10 +349,15 @@
     font-size: 1.5rem;
     background: none;
     border: none;
+    outline: none !important;
 }
 
 .order-list-pay {
     margin-left: 45%;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
+}
+
+.invisible {
+    visibility: hidden;
 }
