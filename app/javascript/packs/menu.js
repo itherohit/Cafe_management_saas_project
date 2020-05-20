@@ -135,6 +135,7 @@ function totalCost() {
 function displayItems() {
     let items = JSON.parse(localStorage.getItem('itemList'));
     let itemContainer = document.querySelector('.cart-box-items');
+    let cartContainer = document.querySelector('.cart-box')
     if (items[0] && itemContainer) {
         itemContainer.innerHTML = '';
         Object.values(items).map(item => {
@@ -152,6 +153,15 @@ function displayItems() {
           </div>
           `
         })
+        if (document.querySelector('.cart-box-total')) {
+            document.querySelector('.cart-box-total').remove();
+        }
+        cartContainer.innerHTML += `<div class="cart-box-total">
+        <a class="cart-box-confirm-link" href="/cart/new">Confirm Order</a>
+        <h4 class="cart-box-pay">You Pay :</h4>
+        <h4><i class="fas fa-rupee-sign"></i> </h4>
+        <h4 class="cart-box-total-price"></h4>
+      </div>`
     }
     if (!items[0] || !items && itemContainer) {
         itemContainer.innerHTML = '';

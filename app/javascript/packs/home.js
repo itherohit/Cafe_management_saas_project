@@ -6,8 +6,10 @@ window.onscroll = () => {
         nav.classList.remove("nav-scrolled");
 }
 
+
 let flash = document.querySelector('.falsh-message ');
 let flashBtn = document.querySelector('.flash-closeBtn');
+
 if (flashBtn) {
     flashBtn.addEventListener('click', () => {
         flash.classList.remove("zoomIn");
@@ -15,6 +17,7 @@ if (flashBtn) {
         flash.classList.add('invisible');
         flash.classList.remove("visible");
     })
+
 }
 
 if (flash) {
@@ -23,6 +26,7 @@ if (flash) {
     flash.classList.remove("zoomOut");
     flash.classList.add("zoomIn");
 }
+
 
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');

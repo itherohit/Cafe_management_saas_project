@@ -26,14 +26,17 @@
     <% if flash[:error] || flash[:session] %>
       <div class="falsh-message ">
       <button class="flash-closeBtn "><i class="far fa-times-circle"></i></button>
-        <div class="flash-message-para">
+        <div class="flash-message-para justify-content-center">
           <% if flash[:error] %>
-          <p><i class="fas fa-exclamation-circle"></i></p>
-          <p><%= flash[:error] %></p>
+            <div class="flash-content">
+              <p><%= flash[:error] %></p>
+            </div>
+            </div>
           <% end %>
           <% if flash[:session] %>
-          <p><i class="far fa-check-circle"></i> </p>
-          <p><%= flash[:session] %></p>
+          <div class="flash-content">
+          <p ><%= flash[:session] %></p>
+          </div>
           <% end %>
           
         </div>

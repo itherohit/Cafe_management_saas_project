@@ -70,14 +70,21 @@
                     <li class="nav-item">
                         <a class="nav-link  active" href="#">Menu</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
-                    </li>
-                    
+                
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                        
                     <% if @current_user %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Orders</a>
-                    </li>
+                    <% if @current_user.role == "clerk" %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <% end %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Orders</a>
+                        </li>
+                    
                     <li class="nav-item">
                     <div class="cart-div">
                         <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
@@ -184,18 +191,23 @@
                     <h1 class="contact-header">Useful Links</h1>
                     <ul>
                         <li class="contact-link">
-                            <a class="contact-link" href="#">Home</a>
+                            <a class="contact-link" href="/">Home</a>
                         </li>
                         <li class="contact-link">
-                            <a class="contact-link" href="/menus">Menu</a>
+                            <a class="contact-link" href="#">Menu</a>
                         </li>
+                  
                         <li class="contact-link">
                             <a class="contact-link" href="#contact">Contact Us</a>
                         </li>
+                    
                         <% if @current_user %>
+                        <% if @current_user.role == "clerk" %>
                         <li class="contact-link">
-                        <a class="contact-link" href="#contact">Orders</a>
-                    </li>
+                            <a class="contact-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <% end %>
+                        
                     
                     <li class="contact-link">
                                 <%= link_to "Sign Out", destroy_session_path, class:"contact-link"%>

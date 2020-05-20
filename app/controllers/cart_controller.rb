@@ -9,6 +9,7 @@ class CartController < ApplicationController
         items.each do |item|
             OrderItem.create!(order_id: order.id, menu_id: item["id"], item_name: item["item_name"], item_price: item["price"], incart: item["incart"])
         end
+        flash[:session] = "Order Confirm"
         redirect_to root_path
     end
 

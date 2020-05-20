@@ -506,9 +506,9 @@ body {
 }
 
 .falsh-message {
-    position: absolute;
-    width: 85vh;
-    height: 30vh;
+    position: fixed;
+    width: 73vh;
+    height: 20vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: aliceblue;
     border-radius: 10px;
@@ -517,9 +517,8 @@ body {
     left: 0%;
     bottom: 0%;
     margin: auto;
-    padding: 2%;
+    transition: 0.3s;
     z-index: 999;
-    text-align: center;
 }
 
 .flash-message-para {
@@ -529,7 +528,6 @@ body {
     font-size: bold;
     width: 100%;
     height: 100%;
-    padding: 5%;
 }
 
 .flash-closeBtn {
@@ -540,4 +538,9 @@ body {
     background: none;
     border: none;
     outline: none !important;
+}
+
+.flash-content {
+    margin: auto;
+    text-align: center;
 }
