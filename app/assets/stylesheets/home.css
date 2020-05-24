@@ -503,6 +503,10 @@ body {
         font-family: 'Roboto', sans-serif;
         text-align: center;
     }
+    .toggle-bg {
+        background-color: #17181A !important;
+        border-radius: 10px;
+    }
 }
 
 .falsh-message {
@@ -510,7 +514,7 @@ body {
     width: 73vh;
     height: 20vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: aliceblue;
+    background-color: #17181A;
     border-radius: 10px;
     top: 0%;
     right: 0%;
@@ -534,6 +538,7 @@ body {
     position: absolute;
     top: 2%;
     right: 0%;
+    color: white;
     font-size: 1.5rem;
     background: none;
     border: none;
@@ -542,5 +547,6 @@ body {
 
 .flash-content {
     margin: auto;
+    color: white;
     text-align: center;
 }

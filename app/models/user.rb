@@ -3,9 +3,7 @@ class User < ActiveRecord::Base
     has_secure_password
 
     def walkin
-        if role == "clerk"
-            return true
-        end
+       return true  if role == "clerk"
     end
 
     def online

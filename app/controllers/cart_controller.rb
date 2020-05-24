@@ -14,8 +14,13 @@ class CartController < ApplicationController
     end
 
     def show
-        order = Order.find(params[:id]).order_items
-        render json: order
+        order = Order.find(params[:id])
+        order_json={}
+        order_json["total"] = order.cost
+        order_json["Date"] = order.created_at.to_s(:short)
+        order_json["updated"] = order.updated_at.to_s(:short)
+        order_json["items"] = order.order_items
+        render json: order_json
     end
 
 end

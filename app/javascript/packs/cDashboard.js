@@ -36,6 +36,7 @@ for (let i = 0; i < clerkBtn.length; i++) {
         clerkBtn[i].classList.add('border-bottom');
         clerkSec[i].classList.add('visible');
     })
+
 }
 
 let order_list = document.querySelectorAll('.clerk-sec-pennding-orders-order');
@@ -80,9 +81,9 @@ function orderitems(order_json) {
     let total = 0;
     let list = document.querySelector('.order-list-items');
     list.innerHTML = '';
-    Object.values(order_json).map(order => {
-        total += parseInt(order.incart) * parseInt(order.item_price);
+    Object.values(order_json["items"]).map(order => {
         list.innerHTML += `<p class="order-list-items-para"> ${order.item_name}(x${order.incart})</p>`
     })
-    document.querySelector('.order-list-price').innerHTML = total;
+    document.querySelector('.order-list-price').innerHTML = order_json["total"];
+    document.querySelector('.OrderDate').innerHTML = order_json["Date"];
 }

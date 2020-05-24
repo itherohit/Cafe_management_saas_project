@@ -4,7 +4,10 @@
  <div class="clerk-sec-pennding-orders-info">
     <p class="clerk-sec-pennding-orders-para"><i class="far fa-user"></i> <%= order.user.first_name.capitalize %></p>
     <p class="clerk-sec-pennding-orders-order" id="<%= order.id %>"><i class="fas fa-list"></i> <%=order.order_items[0].item_name %> ...</p>
-    <button type="submit" class="delivered-Btn"><i class="fas fa-check"></i> Delivered</button>
+    <p class="clerk-sec-pennding-date"><%= order.created_at.to_s(:short) %></p>
+    <button type="submit" class="delivered-Btn" data-hover="Deliver ">
+    <i class="fas fa-times"></i> Pending
+    </button>
 </div>
 <% end %>
 <% end %>

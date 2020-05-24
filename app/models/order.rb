@@ -11,6 +11,6 @@ class Order < ApplicationRecord
         all.where(delivered_status: true, date: Date.today).count
     end
     def self.delivered
-        all.where(delivered_status: true);
+        all.where(delivered_status: true).order('updated_at DESC');
     end
 end

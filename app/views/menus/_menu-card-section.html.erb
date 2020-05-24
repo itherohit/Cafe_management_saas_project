@@ -1,14 +1,14 @@
 <% category.each do |category| %>
   <% menu = category.menu_items.name_sort %>
   <div class="menu-items" id=<%= category.name[0] %>>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center flex">
       <% i = 1 %>
       <% menu.each do |menu| %>
       <% if i%4 == 1 && i!=1%>
-        <div class="menu-items">
+        <div class="menu-items container-fluid">
         <div class="row justify-content-center">
     <% end %>
-    <div class="col-lg-3 col-sm-12">
+    <div class="col-sm-6 col-lg-3">
       <div class="menu-card">
         <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
         <div class="menu-item-name">

@@ -220,7 +220,7 @@
 
 @media (max-width:600px) {
     .food-section {
-        height: 40vh;
+        height: 30vh;
     }
     .food-item:hover {
         flex: 1.8;
@@ -242,7 +242,7 @@
         font-size: 1.45rem;
         color: white;
         bottom: auto;
-        top: 36.5%;
+        top: 30%;
         left: 0;
         right: 0;
         background-color: rgb(17, 18, 20);
@@ -250,8 +250,22 @@
         letter-spacing: 4px;
     }
     .food-main-section {
-        height: 45vh;
+        height: 35vh;
         z-index: 2;
+    }
+    .menu-category {
+        text-align: center;
+    }
+    .menu-category-name a {
+        text-decoration: none;
+        outline: none;
+        font-size: 1.7rem;
+        font-weight: 500;
+        color: #17181A;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .flex {
+        display: flex;
     }
 }
 
