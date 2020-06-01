@@ -1,0 +1,86 @@
+<main class="clerkdash">
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+         DASHBOARD
+      </div>
+      <div class="logo" style="margin-left:auto;">
+         SIGNOUT
+      </div>
+      <ul>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a href="/owner" style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-book"></i></span>
+          <span class="title">Menus</span>
+          </a></li>
+        <li><a href="/userdash" style="text-decoration: none;">
+          <span class="icon"><i class="	fas fa-child"></i></span>
+          <span class="title">Users</span>
+          </a></li>
+        <li><a href="#" class="active" style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-male"></i></span>
+          <span class="title">Clerks</span>
+          </a></li>
+        <li><a href="/salesdash" style="text-decoration: none;">
+          <span class="icon"><i class="fab fa-btc"></i></span>
+          <span class="title">Sales Report</span>
+          </a></li>
+        <li><a href="/orderdash"style="text-decoration: none;" >
+          <span class="icon"><i class="fas fa-cart-plus"></i></span>
+          <span class="title">Orders</span>
+          </a></li>
+    </ul>
+  </div>
+  <div class="main_container">
+      <div class="addclerk">
+        <%= form_with(url: "/users/clerk", method: "POST") do %>
+        <input class="addclerk-text" type="text" placeholder="Name" name="name">
+        <input class="addclerk-button" type="submit" value="Add">
+        <%end%>
+      </div>
+      <div class="ash" style="display: flex;">
+      
+      <div class="border-scroll-clerk">
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Clerks</h1>
+        <div class="item-scrollbar-clerk">
+          <ol>
+               <%user=User.clerk()%>
+                <li class="menuitem">
+                <%user.each do|user| %>
+                  <label class="menuitem-container">
+                  
+                    <h3>
+                      <%=user.first_name%>
+                      </h3>
+                      <a href="javascript:void(0)">
+                        <%= form_with(url: "/destroyclerk?id=#{user.id}" , method: "DELETE" ) do %>
+                        <button style="background-color:Transparent;border:none">
+                        <i class="	fas fa-trash" style="margin-left:30px;color:#E62E5D;font-size:15px;"type=submit ></i>
+                        </button>
+                        <%end%>
+                      </a>
+                      
+                   </label>
+                   <%end%>
+                </li> 
+          </ol>
+        </div>
+      </div>
+    
+</div>
+</main>

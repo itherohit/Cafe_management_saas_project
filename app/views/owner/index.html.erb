@@ -1,0 +1,96 @@
+
+<main class="owner">
+<div class="wrapper">
+  <div class="top_navbar">
+    <div class="hamburger">
+    <div class="hamburger-logo">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+         <p>DASHBOARD</p>
+      </div>
+      <div class="logo" style="margin-left:auto;">
+         <p>SIGNOUT</p>
+      </div>
+      <ul>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar">
+      <ul>
+        <li><a href="#" class="active" style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-book"></i></span>
+          <span class="title">Menus</span>
+          </a></li>
+        <li><a href="/userdash" style="text-decoration: none;">
+          <span class="icon"><i class="	fas fa-child"></i></span>
+          <span class="title">Users</span>
+          </a></li>
+        <li><a href="/clerkdash" style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-male"></i></span>
+          <span class="title">Clerks</span>
+          </a></li>
+        <li><a href="/salesdash" style="text-decoration: none;">
+          <span class="icon"><i class="fab fa-btc"></i></span>
+          <span class="title">Sales Report</span>
+          </a></li>
+        <li><a href="/orderdash" style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-cart-plus"></i></span>
+          <span class="title">Orders</span>
+          </a></li>
+    </ul>
+  </div>
+  
+  <div class="main_container"> 
+    <div class="editmenuitem">
+        <h2 class="editmenuitem-title">Edit Menu Items</h2>
+    </div>
+    <div class="editmenu-container">
+        <div class="categorya">
+          <h1 class="category-title">Create a new Category</h1>
+          <%= form_with(url: "/categories", method: "POST") do %>
+          <input class="addcategory-text" type="text" placeholder="Category" name="name">
+          <input class="addclerk-button" type="submit" value="Add" >
+          <%end%>
+        </div>
+        <div class="categoryb">
+          <h1 class="category-title">Add a new Menu Item</h1>
+          <%= form_with(url: "/menuitems", method: "POST") do %>
+          <section class="categoryb-section">
+            <h3 class="categoryb-section-title">Category Name</h3>
+            <select id="user_id" name="category" class="select-category">
+              <option value="">Choose Category</option>
+              <% Category.all.each do |category| %> 
+              <option value="<%=category.name%>"><%=category.name%></option>
+              <%end%>
+            </select>
+          </section>
+          <section class="categoryb-section">
+            <h3 class="categoryb-section-title">MenuItem Name</h3>
+            <input class="addmenuitem-text" type="text" placeholder="Menu Item" name="name">
+          </section>
+          <section class="categoryb-section">
+            <h3 class="categoryb-section-title">Price</h3>
+            <input class="addmenuitem-text" type="text" placeholder="Price" name="price">
+          </section>
+          <section class="categoryb-section">
+            <h3 class="categoryb-section-title">Image url</h3>
+            <input class="addmenuitem-text" type="text" placeholder="Url" name="url">
+          </section>
+          <input class="addclerk-button" type="submit" value="Add" >
+          <%end%>
+        </div>
+    </div>
+  </div>
+  
+    
+</main>
+
+ 

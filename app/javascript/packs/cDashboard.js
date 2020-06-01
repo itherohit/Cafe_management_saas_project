@@ -1,7 +1,13 @@
+var toggleBtn = document.querySelector('.hamburger');
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        document.querySelector('.wrapper').classList.toggle('collapsed');
+    })
+}
+
 window.onload = startTime();
 
 function startTime() {
-
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();

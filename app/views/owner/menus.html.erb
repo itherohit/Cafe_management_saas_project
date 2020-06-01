@@ -1,0 +1,177 @@
+
+<main class="invoicedash">
+    
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+         DASHBOARD
+      </div>
+      <div class="logo" style="margin-left:auto;">
+         SIGNOUT
+      </div>
+      <ul>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a href="/owner" class="active"style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-book"></i></span>
+          <span class="title">Menus</span>
+          </a></li>
+        <li><a href="/userdash"style="text-decoration: none;">
+          <span class="icon"><i class="	fas fa-child"></i></span>
+          <span class="title">Users</span>
+          </a></li>
+        <li><a href="/clerkdash"style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-male"></i></span>
+          <span class="title">Clerks</span>
+          </a></li>
+        <li><a href="/salesdash"style="text-decoration: none;" >
+          <span class="icon"><i class="fab fa-btc"></i></span>
+          <span class="title">Sales Report</span>
+          </a></li>
+        <li><a href="/orderdash"style="text-decoration: none;">
+          <span class="icon"><i class="fas fa-cart-plus"></i></span>
+          <span class="title">Orders</span>
+          </a></li>
+    </ul>
+  </div>
+  <div class="main_container">
+  <div class="editmenuitem">
+        <h2 align="center"style="font-size:30px;">CREATE A NEW MENU</h2>
+    </div>
+      <%= form_with(url: "/menuhelpers", method: "POST") do %>
+    <div class="ash" style="display: flex;">
+    
+      <div class="addmenu">
+         <input class="addclerk-text" type="text" placeholder="Create a New Menu" name="name">
+      </div>
+       <div class="border-scroll">
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Add Menu Items</h1>
+        <div class="item-scrollbar-menu">
+          <ol>
+            <% Category.all.each do |category| %>
+            <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
+            <%menu= category.menuitems%>
+            <% menu.each do |menu| %>
+                <li class="menuitem">
+                  <label class="menuitem-container">
+                    <%= check_box_tag 'menu_ids[]', menu.id -%>
+                      <%=menu.name%>
+                      <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      
+                      
+                    <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
+                    
+                  </label>
+                </li>
+                <%end%>
+              <%end%> 
+          </ol>
+        </div>
+      </div>
+        <input class="addmenu-button" type="submit" value="Create">
+      
+    </div>
+    <%end%>
+    <div class="editmenuitem">
+        <h2 align="center"style="font-size:30px;">ALL MENUS</h2>
+    </div>
+    <div class="ash" style="display: flex;box-sizing: border-box;">
+      <%Menu.all.each do |menu|%>
+      <div class="border-scroll-menu">
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center"><%=menu.name%></h1>
+        <div class="item-scrollbar-menu">
+          <ol>
+            <% Category.all.each do |category| %>
+            <%item=Menuhelper.of_user(menu,category)%>
+            <%if item.present? then%>
+            <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
+            <%end%>
+            <% item.each do |item| %>
+              <% cat=Menuitem.find(item.menuitem_id)%>
+                <li class="menuitem">
+                  <label class="menuitem-container">
+                    <h3>
+                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3>
+                    </h3>
+                    <a href="javascript:void(0)">
+                        <%= form_with(url: "/menuhelpers/#{item.id}" , method: "DELETE" ) do %>
+                        <button style="background-color:Transparent;border:none" >
+                        <i class="	fas fa-trash" style="margin-left:30px;color:#E62E5D;font-size:15px;"type=submit ></i>
+                        </button>
+                        <%end%>
+                        </a>
+                    
+                    <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="100" width="100">
+                    
+                  </label>
+                </li>
+            <%end%>
+            
+              <%end%> 
+          </ol>
+          
+        </div>
+        <%= link_to "Make as Active", "/menuactive?id=#{menu.id}" %>
+      </div>
+      <%end%>
+    </div>
+    <div class="editmenuitem">
+        <h2 align="center"style="font-size:30px;margin-top:20px;">UPDATE MENUS</h2>
+    </div>
+    <div class="sash" style="display:flex;">
+        <div class="categoryb">
+              <h1 align="center" style="font-weight:400px;font-size:30px;">Add a Menu Item</h1>
+              <%= form_with(url: "/menuhelpers", method: "PATCH") do %>
+              <section style="display: flex;align-items: center;">
+                <h3>Menu</h3>
+                <select id="user_id" name="menuname" class="select-category">
+                  <option value="">Choose a Menu</option>
+                  <% Menu.all.each do |menu| %> 
+                  <option value="<%=menu.id%>"><%=menu.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <section style="display: flex;align-items: center;">
+                <h3>MenuItem</h3>
+                <select id="user_id" name="item" class="select-category">
+                  <option value="">Choose a Menuitem</option>
+                  <% Menuitem.all.each do |item| %> 
+                  <option value="<%=item.id%>"><%=item.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <input class="addmenuitem-button" type="submit" value="Add" >
+              <%end%>
+        </div>
+        <div class="categoryb">
+              <h1 align="center" style="font-weight:400px;font-size:30px;">Delete Menu</h1>
+              <%= form_with(url: "/menudelete", method: "GET") do %>
+              <section style="display: flex;align-items: center;">
+                <h3>Menu</h3>
+                <select id="user_id" name="menuname" class="select-category">
+                  <option value="">Choose a Menu</option>
+                  <% Menu.all.each do |menu| %> 
+                  <option value="<%=menu.id%>"><%=menu.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <input class="addmenuitem-button"  type="submit" value="Delete" >
+              <%end%>
+        </div>
+    </div>
+       
+</main>
