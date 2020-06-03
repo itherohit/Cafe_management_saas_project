@@ -3,6 +3,9 @@ class OwnerController < ApplicationController
     def index
         render "index"
     end
+    def user
+      render "user"
+    end
     def clerk
         render "clerk"
     end

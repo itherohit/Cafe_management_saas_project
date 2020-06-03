@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   get "/owner" => "owner#index"
+  get"/userlist" => "owner#user"
   get "/invoice" => "owner#invoice"
   get "/orderdash" => "owner#order"
   get "/menusdash" => "owner#menus"
   get "/menuactive" => "owner#active"
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
-  get"/clerkdash" => "owner#clerk"
+  get"/clerklist" => "owner#clerk"
   get"/salesdash" => "owner#sales"
   get "/orderreport" => "owner#report"
-  get"/userdash" => "owner#user"
   patch"/menuhelpers" => "menuhelpers#update"
   get"/menudelete" => "menus#del"
   delete"/destroyclerk"=>"owner#deleteclerk"

@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
     def online
         return true if role == "customer"
     end
+
+    def self.customer
+        all.where(role: "customer")
+    end
+    def self.clerk
+        all.where(role: "clerk")
+    end
 end
