@@ -55,8 +55,8 @@
     <div class="editmenu-container">
         <div class="categorya">
           <h1 class="category-title">Create a new Category</h1>
-          <%= form_with(url: "/categories", method: "POST") do %>
-          <input class="addcategory-text" type="text" placeholder="Category" name="name">
+          <%= form_with(url: "/owner", method: "POST") do %>
+          <input class="addcategory-text" type="text" placeholder="Category" name="category">
           <input class="addclerk-button" type="submit" value="Add" >
           <%end%>
         </div>

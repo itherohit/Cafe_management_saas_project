@@ -53,6 +53,13 @@
         <div class="user-list">
           <ol>
                <%user=User.customer()%>
+               <% if user.blank? %>
+               <li class="user-name">
+                  <div class="useritem-container">
+                    <p class="user-email">No Customers yet.</p>
+                    </div>
+                </li>
+               <% else %>
                <%user.each do|user| %>
                 <li class="user-name">
                   <div class="useritem-container">
@@ -61,7 +68,7 @@
                     </div>
                 </li> 
                 <%end%>
-                
+                <%end%>
           </ol>
         </div>
         </div>

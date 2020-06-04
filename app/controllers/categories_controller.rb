@@ -1,7 +1,4 @@
 class CategoriesController < ApplicationController
-    def index
-        render plain: "ok"
-    end
     def new
     #  Category.delete_all
         category = Category.all

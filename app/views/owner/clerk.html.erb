@@ -1,3 +1,26 @@
+
+<div class="addclerk-form invisible">
+                <button class="close-btn-clerk"><i class="far fa-times-circle"></i></button>
+                <div class="sign-logo">
+                    <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+                </div>
+                <%= form_with(url: "/owner/new", method: "get", html: {class:"sign-form"}) do %>
+                    <h1 class="sign-h1">Add Clerk</h1>
+                    <!-- <div class="social-container">
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span class="sign-span">or use your email for registration</span> -->
+                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" required/>
+                    <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
+                    <input class="sign-input" type="email"  name="email" placeholder="Email" required/>
+                    <input class="sign-input" type="password" name="password"  placeholder="Password" required/>
+                    <button type="submit" class="sign-btn">Add </button>
+                <% end %>
+</div>
+
+
 <main class="owner">
 <div class="wrapper">
   <div class="top_navbar">
@@ -46,38 +69,39 @@
           </a></li>
     </ul>
   </div>
-  <div class="user-list-container">
-    <div >
-      <div class="addclerk">
-        <%= form_with(url: "/users/clerk", method: "POST") do %>
-        <input class="addmenuitem-text" type="text" placeholder="Name" name="name">
-        <input class="addclerk-button" type="submit" value="Add">
-        <%end%>
-      </div>
+  <div class="main_container">
+      <div class="user-list-container">
       <div class="clerk-list-section">
         <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Clerks</h1>
         <div class="user-list">
           <ol>
-               <%user=User.clerk%>
-               <%user.each do|user| %>
+               <%clerk=User.clerk%>
+               <% if clerk.blank? %>
+               <li class="user-name">
+                  <div class="useritem-container">
+                    <p class="user-email">No Clerks added.</p>
+                    </div>
+                </li>
+               <% else %>
+               <%clerk.each do|clerk| %>
                 <li class="user-name">
-                  <div class="menuitem-container">
-                    <h3>
-                      <%=user.first_name%>
-                      </h3>
-                      <a href="javascript:void(0)">
-                        <%= form_with(url: "/destroyclerk?id=#{user.id}" , method: "DELETE" ) do %>
-                        <button style="background-color:Transparent;border:none">
-                        <i class="	fas fa-trash" style="margin-left:30px;color:#E62E5D;font-size:15px;"type=submit ></i>
-                        </button>
-                        <%end%>
-                      </a>
-                   </div>
-                   <%end%>
+                  <div class="useritem-container">
+                    <h3><%=clerk.first_name.capitalize%></h3>
+                    <p class="user-email"><%= clerk.email%></p>
+                    <%= form_with(url: "/owner/#{clerk.id}" , method: "DELETE" ) do %>
+                    <button type="submit" class="delBtn"><i class="fas fa-trash-alt"></i></button>
+                    <% end %>
+                    </div>
                 </li> 
+                <%end%>
+               <% end %>
           </ol>
         </div>
       </div>
-    </div>
+      </div>
+      <div class="user-list-container">
+      <button class="addclerk-button" >Add Clerk</button>
+      </div>
+  </div>
 </div>
 </main>

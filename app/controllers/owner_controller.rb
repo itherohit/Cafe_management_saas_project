@@ -41,12 +41,34 @@ class OwnerController < ApplicationController
       render "invoice"
       
     end
-    def deleteclerk
+    def new
+      user = User.new(
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        email: params[:email],
+        password: params[:password],
+        role:"clerk"
+      )
+      if user.save
+        flash[:session] = params[:first_name].capitalize + " Added"
+        redirect_to clerklist_path
+      end
+    end
+
+    def destroy
       id=params[:id]
-      todo=User.find(id)
-      todo.destroy
-      redirect_to "/clerkdash"
-  end
+      clerk=User.find(id)
+      clerk.destroy
+      redirect_to "/clerklist"
+    end
+
+    def create
+      new_category = Category.new(name: params[:category].capitalize)
+      if new_category.save
+        redirect_to owner_path
+      else
+      end
+    end
   def active
     id=params[:id]
     m=Menu.active().first
