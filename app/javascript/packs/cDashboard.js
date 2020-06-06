@@ -1,7 +1,16 @@
 var toggleBtn = document.querySelector('.hamburger');
+var clerkForm = document.querySelector('.addclerk-form');
+var clerkClose = document.getElementById("clerkClose");
+var addClerk = document.getElementById("addClerk");
 if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
         document.querySelector('.wrapper').classList.toggle('collapsed');
+    })
+    addClerk.addEventListener('click', () => {
+        clerkForm.classList.remove("invisible");
+    })
+    clerkClose.addEventListener('click', () => {
+        clerkForm.classList.add("invisible");
     })
 }
 

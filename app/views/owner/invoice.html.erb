@@ -2,19 +2,20 @@
 <main class="invoicedash">
     
 <div class="wrapper">
-  
-  <div class="top_navbar">
+ <div class="top_navbar">
     <div class="hamburger">
+    <div class="hamburger-logo">
        <div class="one"></div>
        <div class="two"></div>
        <div class="three"></div>
     </div>
+    </div>
     <div class="top_menu">
       <div class="logo">
-         DASHBOARD
+         <p>DASHBOARD</p>
       </div>
       <div class="logo" style="margin-left:auto;">
-         SIGNOUT
+         <p>SIGNOUT</p>
       </div>
       <ul>
         <li><a href="/signout" data-method="delete">
@@ -23,18 +24,17 @@
       </ul>
     </div>
   </div>
-  
   <div class="sidebar">
       <ul>
         <li><a href="/owner" style="text-decoration: none;">
           <span class="icon"><i class="fas fa-book"></i></span>
           <span class="title">Menus</span>
           </a></li>
-        <li><a href="#" style="text-decoration: none;">
+        <li><a href="userlist" style="text-decoration: none;">
           <span class="icon"><i class="	fas fa-child"></i></span>
           <span class="title">Users</span>
           </a></li>
-        <li><a href="/clerkdash"style="text-decoration: none;" >
+        <li><a href="/clerklist"style="text-decoration: none;" >
           <span class="icon"><i class="fas fa-male"></i></span>
           <span class="title">Clerks</span>
           </a></li>
@@ -50,29 +50,22 @@
   </div>
   <div class="main_container">
      <div id="invoice">
-
     <div class="toolbar hidden-print">
         <div class="text-right">
             <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
-            
         </div>
         <hr>
     </div>
     <div class="invoice overflow-auto">
-        <div style="min-width: 600px">
+        <div style="min-width: 600px;">
             <header>
                 <div class="row">
                     <div class="col">
-                        <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> 
+                        <a class="navbar-brand" href="/"><i class="fas fa-utensils nav-icon sign-icon"></i> 
                         <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo" style="color:#ffbf00;">Blinders</span>
                         </a>
                     </div>
                     <div class="col company-details">
-                        <h2 class="name">
-                            <a target="_blank" href="">
-                            FOODY BLINDERS
-                            </a>
-                        </h2>
                         <div>455 Foggy Heights, AZ 85004, US</div>
                         <div>9003180101</div>
                         <div>foodyblinders@gmail.com</div>
@@ -82,11 +75,10 @@
             <main>
                 <div class="row contacts">
                     <div class="col invoice-to">
-                        <div class="text-gray-light">INVOICE TO:</div>
-                        <h1 class="to" style="font-weight:bold;font-size:40px"><%=@order.user.first_name.titlecase%><%=" "%><%=@order.user.last_name.titlecase%></h1>
+                        <div class="text-gray-light">Invoice To:</div>
+                        <h1 class="to" style="font-weight:bold;font-size:35px; margin-top: 10px;"><%=@order.user.first_name.titlecase%><%=" "%><%=@order.user.last_name.titlecase%></h1>
                     </div>
                     <div class="col invoice-details">
-                        <h1 class="invoice-id">INVOICE 3-2-1</h1>
                         <div class="date">Date of Invoice: <%= Time.now.strftime('%B %e %Y') %></div>
                     </div>
                 </div>
@@ -122,7 +114,7 @@
                         <tr>
                             <td colspan="2"></td>
                             <td colspan="2">GRAND TOTAL</td>
-                            <td><%=total%></td>
+                            <td><i class="fas fa-rupee-sign"></i><%=total%></td>
                         </tr>
                     </tfoot>
                 </table>

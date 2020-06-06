@@ -13,4 +13,7 @@ class Order < ApplicationRecord
     def self.delivered
         all.where(delivered_status: true).order('updated_at DESC');
     end
+    def self.sort_date
+        all.order(:date)
+    end
 end

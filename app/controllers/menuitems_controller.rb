@@ -5,13 +5,15 @@ class MenuitemsController < ApplicationController
         category=params[:category]
         price=params[:price]
         url=params[:url]
-        cat=Category.find_by_name(category)
-        new_menuitem=Menuitem.new(name: name,category_id: cat.id,price: price,img_url: url)
+        descp = params[:descp]
+        new_menuitem=MenuItem.new(item_name: name,item_desciption: descp, category_id: category,price: price,img_url: url)
         if new_menuitem.save
-            redirect_to owner_path
-          else
-
-          end
+            flash[:session] = name.capitalize + " Added"
+            redirect_to owner_index_path
+        else
+            flash[:session] = "Error Adding"
+            redirect_to owner_index_path
+        end
     end
     def destroy
         id=params[:id]

@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     def self.clerk
         all.where(role: "clerk")
     end
+
+    def first_name
+        return first_name
+    end
 end

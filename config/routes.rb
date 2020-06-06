@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get"/userlist" => "owner#user"
   get"/clerklist" => "owner#clerk"
+  get"/owner/delete" => "owner#delete"
   get "/invoice" => "owner#invoice"
   get "/orderdash" => "owner#order"
   get "/menusdash" => "owner#menus"

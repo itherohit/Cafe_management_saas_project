@@ -5,6 +5,7 @@
         text-decoration: none;
         box-sizing: border-box;
         font-family: 'Montserrat', sans-serif;
+        outline: none !important;
     }
     
     .owner {
@@ -363,10 +364,21 @@
         margin: 0 auto;
         margin-top: 20px;
         align-items: center;
+        justify-content: space-evenly;
     }
     
     .ash {
         flex-flow: wrap;
+    }
+    
+    .sales-header {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 20px;
+        background-color: #E62E5D;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     
     .Addsales-date {
@@ -374,19 +386,24 @@
         align-items: center;
         font-size: 15px;
         color: #453C52;
-        margin-top: 20px;
-        margin: 0 auto;
-        border-radius: 4px;
+        border-radius: 20px;
         border: 1px solid #BFB8CC;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     
     .Addsales-button {
-        font-size: 14px;
+        font-size: 20px;
         color: white;
         background-color: #E62E5D;
         border: 1px solid transparent;
         padding: 6px 22px;
-        border-radius: 4px;
+        border-radius: 20px;
+        transition: 0.3s;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .Addsales-button:hover {
+        transform: scale(1.1);
     }
     
     #customers {
@@ -401,13 +418,16 @@
     #customers th,
     #clerktable td,
     #clerktable th {
-        border-radius: 2px;
         padding: 15px;
+        text-align: center;
+        text-decoration: none;
     }
     
     #customers tr,
     #clerktable tr {
         background-color: white;
+        text-align: center;
+        text-decoration: none;
     }
     
     #customers tr:hover,
@@ -422,6 +442,8 @@
         text-align: left;
         background-color: #E62E5D;
         color: white;
+        text-align: center;
+        font-weight: bold;
     }
     
     .addclerk {
@@ -481,13 +503,32 @@
     
     .categorya {
         background: #E62E5D;
-        width: 40%;
-        height: 190px;
+        position: absolute;
+        top: 0%;
+        height: 200px;
         margin: 0 auto;
         border-radius: 15px;
         font-weight: 500;
         text-align: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .categoryb {
+        position: absolute;
+        bottom: 0%;
+        width: 100%;
+        background: #E62E5D;
+        height: 200px;
+        margin: 0 auto;
+        border-radius: 15px;
+        font-weight: 500;
+        text-align: center;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .category-left {
+        width: 40%;
+        position: relative;
     }
     
     .category-title {
@@ -498,7 +539,7 @@
         color: white;
     }
     
-    .categoryb {
+    .category-right {
         background: #E62E5D;
         width: 50%;
         height: auto;
@@ -563,6 +604,7 @@
         border-radius: 20px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         transition: 0.3s;
+        outline: none !important;
     }
     
     .addclerk-button:hover {
@@ -597,13 +639,11 @@
     }
     
     .select-user {
-        margin-top: 10px;
         padding: 5px 10px;
         font-size: 20px;
         color: #453C52;
-        margin: 0 auto;
         background: #fff;
-        border-radius: 4px;
+        border-radius: 20px;
         border: 1px solid #BFB8CC;
     }
     
@@ -764,4 +804,9 @@
         background: none;
         background-color: none;
         border: none;
+    }
+    
+    .company-details div,
+    h1 {
+        margin-bottom: 10px;
     }

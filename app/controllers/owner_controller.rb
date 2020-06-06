@@ -18,6 +18,16 @@ class OwnerController < ApplicationController
     def order
         render "orders"
     end
+    
+    def delete
+      id = params[:category]
+      category=Category.find(id)
+      category.menu_items.delete_all
+      flash[:session] = category.name.capitalize + " Deleted"
+      category.destroy
+      redirect_to owner_index_path
+    end
+
     def report
         user = params[:user]
         u=User.find_by_name(user)
@@ -54,30 +64,30 @@ class OwnerController < ApplicationController
         redirect_to clerklist_path
       end
     end
-
     def destroy
       id=params[:id]
       clerk=User.find(id)
       clerk.destroy
-      redirect_to "/clerklist"
+      redirect_to clerklist_path
     end
 
     def create
       new_category = Category.new(name: params[:category].capitalize)
+      flash[:session] = new_category.name.capitalize + " Added"
       if new_category.save
-        redirect_to owner_path
+        redirect_to owner_index_path
       else
       end
     end
-  def active
-    id=params[:id]
-    m=Menu.active().first
-    m.active_menu=false
-    m.save!
-    newm=Menu.find(id)
-    newm.active_menu= true
-    newm.save!
-    render"menus"
-end
+    def active
+      id=params[:id]
+      m=Menu.active().first
+      m.active_menu=false
+      m.save!
+      newm=Menu.find(id)
+      newm.active_menu= true
+      newm.save!
+      render"menus"
+    end
 
   end
