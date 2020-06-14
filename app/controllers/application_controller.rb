@@ -29,4 +29,18 @@ class ApplicationController < ActionController::Base
             redirect_to root_path
         end
     end
+
+    def check_owner
+        return @current_user if @current_user
+        current_user_id = session[:current_user_id]
+        if current_user_id
+            if  User.find(current_user_id).role == "owner"
+                @current_user =  User.find(current_user_id)
+            else
+                redirect_to root_path
+            end
+        else
+            redirect_to root_path
+        end
+    end
 end

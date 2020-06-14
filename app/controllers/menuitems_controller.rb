@@ -1,5 +1,6 @@
 class MenuitemsController < ApplicationController
     skip_before_action :ensure_user_logged_in
+    before_action :check_owner
     def create
         name=params[:name]
         category=params[:category]

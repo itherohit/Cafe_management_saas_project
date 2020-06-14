@@ -5,5 +5,7 @@ class Menuhelper < ActiveRecord::Base
     def self.of_user(menu,category)
         all.where(menu_id: menu.id , category_id: category.id)
     end
-    
+    def self.name_sort
+        all.order(:item_name)
+    end
 end

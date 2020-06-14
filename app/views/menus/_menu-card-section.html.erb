@@ -1,9 +1,13 @@
-<% category.each do |category| %>
-  <% menu = category.menu_items.name_sort %>
+<%menu=Menu.active%>
+<% menu.each do |activemenu| %>
+  <% Category.all.each do |category| %>
+    <%item=Menuhelper.of_user(activemenu,category)%>
+        <%if item.present? then%>
   <div class="menu-items" id=<%= category.name[0] %>>
     <div class="row justify-content-center flex">
       <% i = 1 %>
-      <% menu.each do |menu| %>
+      <% item.each do |item| %>
+      <% menu=MenuItem.find(item.menu_item_id)%>
       <% if i%4 == 1 && i!=1%>
         <div class="menu-items container-fluid">
         <div class="row justify-content-center">
@@ -34,3 +38,5 @@
 </div>
 </div>
 <% end %>
+ <%end%>
+  <%end%>

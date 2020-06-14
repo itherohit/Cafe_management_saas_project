@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/orderreport" => "owner#report"
   get"/menudelete" => "menus#del"
   post "/users/clerk" => "users#clerk"
+  post "/subscribe" => "subscribe#new"
   resources :users
   resources :menus
   resources :categories

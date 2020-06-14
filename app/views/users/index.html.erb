@@ -34,7 +34,7 @@
                     <span class="sign-span">or use your account</span> -->
                     <input class="sign-input" name="email" type="email" placeholder="Email" />
                     <input class="sign-input" name="password" type="password" placeholder="Password" />
-                    <a class="sign-a" href="#">Forgot your password?</a>
+               
                     <button class="sign-btn">Sign In</button>
                 <% end %>
             </div>
@@ -85,6 +85,10 @@
                         <% if @current_user.role == "clerk" %>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <% elsif @current_user.role == "owner" %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/owner">Dashboard</a>
                         </li>
                         <% end %>
                         <li class="nav-item">
@@ -187,16 +191,21 @@
                     <p class="subscribe-para">Get your offers <i class="fas fa-percent"></i> and save money <i class="fas fa-rupee-sign"></i>.</p>
                 </div>
                 <div class="sub-input">
-                    <input class="subscribe-input" type="email" id="email" name="email" placeholder="Email">
-                    <input class="subscribe-btn" type="submit" value="Subscribe">
+                <%= form_with(url: "/subscribe", method: "post", html: {id:"subsForm"}) do %>
+                    <input class="subscribe-input" type="email" id="subsemail" name="email" placeholder="Email">
+                    <button class="subscribe-btn" id="subscribe" type="submit">Subscribe</button>
+                <% end %>
                 </div>
+                <p class="subsInfo" id="subsInfo"></p>
             </div>
         </section>
 
         <section id="about-us">
             <div class="about-us">
+            <div>
                 <h1>About Us</h1>
                 <hr class="about-us-line">
+                </div>
             </div>
             <div class="container about">
                 <div class="about-row">
@@ -206,15 +215,15 @@
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <p class="about-para"> "I always wanted to serve people and make a lot of friends. So we got an idea of starting a cafe called FOODY Blinders. We managed to get the funding and we also learned alot about marketing and promotioms by being in the college
-                                clubs. I learned some cooking in my Qurantine time. Food is something we all love"
+                            <p class="about-para"> "I always wanted to serve people and make a lot of friends. So we got an idea of starting a cafe called FOODY Blinders. We managed to get the funding and we also learnt alot about marketing and promotioms by being in the college
+                                clubs. I learned some cooking in my Qurantine time. Food is something we all love. Stop reading and start ordering"
                             </p>
                             <p class="about-para founder-name">-S.ROHIT</p>
                         </div>
                     </div>
                     <div class="row flex-reverse">
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <p class="about-para">Whats more fun than eating and gossiping with your same old school buddies. The idea sounded intriguing and we started a cafe called “Foody Blinders”. We were excited and started this cafe with proper fundings through the college. Furthermore I love to cook cause its always satisfying and also an important essence in our life. All you need to do is Pull up a chair, Take a taste, Come join us, Life is so endlessly delicious.</p>
+                            <p class="about-para">"Whats more fun than eating and gossiping with your same old school buddies. The idea sounded intriguing and we started a cafe called “Foody Blinders”. We were excited and started this cafe with proper fundings through the college. Furthermore I love to cook cause its always satisfying and also an important essence in our life. All you need to do is Pull up a chair, Take a taste, Come join us, Life is so endlessly delicious."</p>
                             <p class="about-para founder-name">-AVINASH</p>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 founder">

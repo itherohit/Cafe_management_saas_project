@@ -28,6 +28,32 @@ if (flash) {
 }
 
 
+const subscribeBtn = document.getElementById('subscribe');
+const subscribeForm = document.getElementById('subsForm');
+const subsEmail = document.getElementById('subsemail');
+const subsInfo = document.getElementById('subsInfo');
+if (subscribeBtn) {
+    subscribeForm.addEventListener('submit', () => {
+        subsInfo.innerHTML = "";
+        event.preventDefault();
+        const email = subsEmail.value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var json = JSON.parse(this.responseText);
+                console.log(json);
+                if (json.deliverable) {
+                    subscribeForm.submit();
+                } else {
+                    subsInfo.innerHTML = "*Invalid Email";
+                }
+            }
+        };
+        xhttp.open("GET", "https://api.trumail.io/v2/lookups/json?email=" + email, true);
+        xhttp.send();
+    })
+}
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
@@ -81,4 +107,8 @@ for (let i = 0; i < navBtn.length; i++) {
     })
 }
 
-document.getElementById('sign-in-link').addEventListener('click', popup, false);
+const signInLink = document.querySelectorAll('#sign-in-link');
+
+for (var i = 0; i < signInLink.length; i++) {
+    signInLink[i].addEventListener('click', popup, false);
+}

@@ -158,7 +158,6 @@
   <div class="editmenuitem">
     <h2 class="editmenuitem-title" >ALL MENUS</h2>
 </div>
-<div class="editmenu-container">
     <%Menu.all.each do |menu|%>
         <div class="border-scroll">
         <h1 style="color: #E62E5D;margin-left: auto;margin-top: 20px;font-size:40px;" align="center"><%= menu.name %></h1>
@@ -195,13 +194,12 @@
                   </label>
                 </li>
             <%end%>
-            
-              <%end%> 
+            <%end%> 
           </ol>
-     
+        </div>
         </div>
     <% end %>
-</div>
+
     
 </section>
 
