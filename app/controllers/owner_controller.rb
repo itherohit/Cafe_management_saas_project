@@ -30,17 +30,25 @@ class OwnerController < ApplicationController
 
     def report
         user = params[:user]
-        u=User.find_by_name(user)
+        u=User.find(user) unless params[:user].blank?
         from = Date.parse(params[:from]) unless params[:from].blank?
         to = Date.parse(params[:to]) unless params[:to].blank?
-        if user.blank?
-          @orders = Order.where("date >= ? AND date <= ?", from, to)
-        elsif from.blank? && to.blank?
-          @orders = Order.where("user_id = ?", u.id)
-        elsif user.blank? && from.blank? && to.blank?
-          @orders = Order.all
+        if user.blank? && from.blank? && to.blank?
+          @orders = Order.sort_date
         else
-          @orders = Order.where("date >= ? AND date <= ? AND user_id = ?", from, to, u.id)
+          if user.blank?
+            if from.blank? || to.blank?
+              @orders = Order.sort_date
+            else
+              @orders = Order.where("date >= ? AND date <= ?", from, to).sort_date
+            end
+          else
+            if from.blank? || to.blank?
+              @orders = Order.where("user_id = ?", u.id).sort_date
+            else
+              @orders = Order.where("date >= ? AND date <= ? AND user_id = ?", from, to, u.id).sort_date
+            end
+          end
         end
         render "report"
     end
@@ -79,6 +87,7 @@ class OwnerController < ApplicationController
       else
       end
     end
+    
     def active
       id=params[:id]
       m=Menu.active().first

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   get "/menuactive" => "owner#active"
   get"/salesdash" => "owner#sales"
   get "/orderreport" => "owner#report"
-  patch"/menuhelpers" => "menuhelpers#update"
   get"/menudelete" => "menus#del"
   post "/users/clerk" => "users#clerk"
   resources :users
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   resources :cart
   resources :dashboard
   resources :owner
+  resources :menuhelpers
   get "/signout" => "users#destroy", as: :destroy_session
   root "users#index"
 end

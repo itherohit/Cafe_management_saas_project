@@ -1,5 +1,4 @@
-
-<main class="owner">
+<section class="owner">
 <div class="wrapper">
   <div class="top_navbar">
     <div class="hamburger">
@@ -49,6 +48,88 @@
   </div>
   
   <div class="main_container"> 
+    <div class="editmenu-container">
+      <div class="border-scroll">
+        <h1 style="color: #E62E5D;margin-left: auto;margin-top: 20px;font-size:40px;" align="center">Active Menu</h1>
+        <div class="item-scrollbar">
+        <%menu=Menu.active()%>
+        <% menu.each do |menu| %>
+          <ol>
+            <% Category.all.each do |category| %>
+            <%item=Menuhelper.of_user(menu,category)%>
+            <%if item.present? then%>
+            <div class="category-header">
+            <p style="padding: 2px;font-size: 30px;font-weight: bold;"><%= category.name %></p>
+            </div>
+            <%end%>
+            <% item.each do |item| %>
+              <% cat=MenuItem.find(item.menu_item_id)%>
+                <li class="menuitem">
+                  <label class="menuitem-container">
+                    <div class="menuitem-name-owner">
+                    <h3 style="line-height: 25px;"><%=cat.item_name%></h3>
+                    </div>
+                    <div class="menuitem-price-owner">
+                      <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">
+                      <%=cat.price%>
+                      </h3>
+                    </div>
+                    <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="75" width="75">
+                    
+                  </label>
+                </li>
+            <%end%>
+            
+              <%end%> 
+          </ol>
+          <%end%>
+        </div>
+        <div  class="edit-menu-button">
+        <a href="/menusdash">
+        <input class="Addsales-button" type="button" value="EDIT ALL MENUS" >
+        </a>
+        </div>
+      </div>
+      
+      <div class="border-scroll">
+        <h1 style="color: #E62E5D;margin-left: auto;margin-top: 20px;font-size:40px;" align="center">All Menu Items</h1>
+        <div class="item-scrollbar">
+          <ol>
+            <% Category.all.each do |category| %>
+            <%if category.menu_items.present? then%>
+             <div class="category-header">
+            <p style="padding: 2px;font-size: 30px;font-weight: bold;"><%= category.name %></p>
+            </div>
+            <%end%>
+            <%menu= category.menu_items%>
+            <% menu.each do |menu| %>
+                <li class="menuitem">
+                  <label class="menuitem-container">
+                  <div class="menuitem-name-owner">
+                    <h3 style="line-height: 25px;">
+                      <%=menu.item_name%></h3>
+                      </div>
+                      <div class="menuitem-price-owner">
+                      <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      </div>
+                      <a href="javascript:void(0)">
+                        <%= form_with(url: "/menuitems/#{menu.id}" , method: "DELETE" ) do %>
+                        <button style="background:none;border:none;outline:none">
+                        <i class="fas fa-trash-alt" type=submit ></i>
+                        </button>
+                        <%end%>
+                      </a>
+                    <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="75" width="75">
+                    
+                  </label>
+                </li>
+                <%end%>
+              <%end%> 
+          </ol>
+        </div>
+      </div>
+    </div>  
+
     <div class="editmenuitem">
         <h2 class="editmenuitem-title">Edit Menu Items</h2>
     </div>
@@ -58,7 +139,7 @@
           <h1 class="category-title">Create a new Category</h1>
           <%= form_with(url: "/owner", method: "POST") do %>
           <input class="addcategory-text" type="text" placeholder="Category" name="category">
-          <input class="addclerk-button" type="submit" value="Add" >
+          <input class="addcat-button" type="submit" value="Add" >
           <%end%>
         </div>
         <div class="categoryb">
@@ -72,7 +153,7 @@
               <%end%>
             </select>
             </div>
-            <input class="addclerk-button" type="submit" value="Delete" >
+            <input class="addcat-button" type="submit" value="Delete" >
           <%end%>
         </div>
         </div>
@@ -104,13 +185,9 @@
             <h3 class="categoryb-section-title">Image url</h3>
             <input class="addmenuitem-text" type="text" placeholder="Url" name="url">
           </section>
-          <input class="addclerk-button" type="submit" value="Add" >
+          <input class="addcat-button" type="submit" value="Add" >
           <%end%>
         </div>
     </div>
   </div>
-  
-    
-</main>
-
- 
+ </section>

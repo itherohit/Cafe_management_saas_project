@@ -15,12 +15,26 @@ class MenuitemsController < ApplicationController
             redirect_to owner_index_path
         end
     end
+
+    def new
+        menu_id = params[:menu]
+        Menu.all.each do |menu|
+            menu.active = false
+            menu.save
+        end
+        menu = Menu.find(menu_id)
+        menu.active = true
+        menu.save
+        redirect_to "/menusdash"
+    end
+
     def destroy
-        id=params[:id]
-        todo=Menuitem.find(id)
-        mh=Menuhelper.where(menuitem_id: id)
-        mh.destroy_all
-        todo.destroy
-        redirect_to "/owner"
-    end    
+        id = params[:id]
+        menu_item = MenuItem.find(id)
+        menu_helper_item = Menuhelper.where(menu_item_id: id)
+        flash[:session] = menu_item.capitalize + " Deleted"
+        menu_helper_item.delete_all
+        menu_item.delete
+        redirect_to owner_index_path
+      end
 end
