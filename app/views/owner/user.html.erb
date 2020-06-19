@@ -1,77 +1,77 @@
 <section class="owner">
-<div class="wrapper">
-  <div class="top_navbar">
-    <div class="hamburger">
-    <div class="hamburger-logo">
-       <div class="one"></div>
-       <div class="two"></div>
-       <div class="three"></div>
-    </div>
-    </div>
-    <div class="top_menu">
-      <div class="logo">
-         <p>DASHBOARD</p>
-      </div>
-      <div class="logo" style="margin-left:auto;">
-         <p>SIGNOUT</p>
-      </div>
-      <ul>
-        <li><a href="/signout" data-method="delete">
-          <i class="fas fa-user" ></i>
-          </a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="sidebar">
-      <ul>
-        <li><a href="/owner"  style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-book"></i></span>
-          <span class="title">Menus</span>
-          </a></li>
-        <li><a href="/userlist" class="active" style="text-decoration: none;">
-          <span class="icon"><i class="	fas fa-child"></i></span>
-          <span class="title">Users</span>
-          </a></li>
-        <li><a href="/clerklist" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-male"></i></span>
-          <span class="title">Clerks</span>
-          </a></li>
-        <li><a href="/salesdash" style="text-decoration: none;">
-          <span class="icon"><i class="fab fa-btc"></i></span>
-          <span class="title">Sales Report</span>
-          </a></li>
-        <li><a href="/orderdash" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-cart-plus"></i></span>
-          <span class="title">Orders</span>
-          </a></li>
-    </ul>
-  </div>
-  <div class="main_container">
-      <div class="user-list-container">
-      <div class="user-list-section">
-        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Customers</h1>
-        <div class="user-list">
-          <ol>
-               <%user=User.customer()%>
-               <% if user.blank? %>
-               <li class="user-name">
-                  <div class="useritem-container">
-                    <p class="user-email">No Customers yet.</p>
-                    </div>
-                </li>
-               <% else %>
-               <%user.each do|user| %>
-                <li class="user-name">
-                  <div class="useritem-container">
-                    <h3><%=user.first_name.capitalize%></h3>
-                    <p class="user-email"><%= user.email%></p>
-                    </div>
-                </li> 
-                <%end%>
-                <%end%>
-          </ol>
-        </div>
+  <div class="wrapper">
+    <div class="top_navbar">
+      <div class="hamburger">
+        <div class="hamburger-logo">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
         </div>
       </div>
-  </div>
+      <div class="top_menu">
+        <div class="logo">
+          <p>DASHBOARD</p>
+        </div>
+        <div class="logo" style="margin-left:auto;">
+          <p>SIGNOUT</p>
+        </div>
+        <ul>
+          <li><a href="/signout" data-method="delete">
+            <i class="fas fa-user" ></i>
+            </a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sidebar">
+        <ul>
+          <li><a href="/owner"  style="text-decoration: none;">
+            <span class="icon"><i class="fas fa-book"></i></span>
+            <span class="title">Menus</span>
+            </a></li>
+          <li><a href="/userlist" class="active" style="text-decoration: none;">
+            <span class="icon"><i class="	fas fa-child"></i></span>
+            <span class="title">Users</span>
+            </a></li>
+          <li><a href="/clerklist" style="text-decoration: none;">
+            <span class="icon"><i class="fas fa-male"></i></span>
+            <span class="title">Clerks</span>
+            </a></li>
+          <li><a href="/salesdash" style="text-decoration: none;">
+            <span class="icon"><i class="fab fa-btc"></i></span>
+            <span class="title">Sales Report</span>
+            </a></li>
+          <li><a href="/orderdash" style="text-decoration: none;">
+            <span class="icon"><i class="fas fa-cart-plus"></i></span>
+            <span class="title">Orders</span>
+            </a></li>
+        </ul>
+    </div>
+    <div class="main_container">
+        <div class="user-list-container">
+          <div class="user-list-section">
+            <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Customers</h1>
+            <div class="user-list">
+              <ol>
+                  <%user=User.customer()%>
+                  <% if user.blank? %>
+                    <li class="user-name">
+                        <div class="useritem-container">
+                          <p class="user-email">No Customers yet.</p>
+                        </div>
+                    </li>
+                  <% else %>
+                    <%user.each do|user| %>
+                      <li class="user-name">
+                        <div class="useritem-container">
+                          <h3><%=user.first_name.capitalize%></h3>
+                          <p class="user-email"><%= user.email%></p>
+                        </div>
+                      </li> 
+                    <%end%>
+                  <%end%>
+              </ol>
+            </div>
+          </div>
+        </div>
+    </div>
 </section>
