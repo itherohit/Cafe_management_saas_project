@@ -1,108 +1,106 @@
 <section class="owner">
-<div class="addclerk-form invisible">
-                <button class="close-btn-clerk" id="clerkClose"><i class="far fa-times-circle"></i></button>
-                <div class="sign-logo">
-                    <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
-                </div>
-                <%= form_with(url: "/owner/new", method: "get", html: {class:"sign-form"}) do %>
-                    <h1 class="sign-h1">Add Clerk</h1>
-                    <!-- <div class="social-container">
-                        <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                        <a class="sign-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                        <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <span class="sign-span">or use your email for registration</span> -->
-                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" required/>
-                    <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
-                    <input class="sign-input" type="email"  name="email" placeholder="Email" required/>
-                    <input class="sign-input" type="password" name="password"  placeholder="Password" required/>
-                    <button type="submit" class="sign-btn">Add </button>
-                <% end %>
-</div>
-
-
-<main class="owner">
-<div class="wrapper">
-  <div class="top_navbar">
-    <div class="hamburger">
-    <div class="hamburger-logo">
-       <div class="one"></div>
-       <div class="two"></div>
-       <div class="three"></div>
-    </div>
-    </div>
-    <div class="top_menu">
-      <div class="logo">
-         <p>DASHBOARD</p>
+  <div class="addclerk-form invisible">
+    <button class="close-btn-clerk" id="clerkClose"><i class="far fa-times-circle"></i></button>
+      <div class="sign-logo">
+        <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
       </div>
-      <div class="logo" style="margin-left:auto;">
-         <p>SIGNOUT</p>
-      </div>
-      <ul>
-        <li><a href="/signout" data-method="delete">
-          <i class="fas fa-user" ></i>
-          </a></li>
-      </ul>
-    </div>
+      <%= form_with(url: "/owner/new", method: "get", html: {class:"sign-form"}) do %>
+        <h1 class="sign-h1">Add Clerk</h1>
+          <!-- <div class="social-container">
+          <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a class="sign-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span class="sign-span">or use your email for registration</span> -->
+        <input class="sign-input" type="text" name="first_name" placeholder="First Name" required/>
+        <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
+        <input class="sign-input" type="email"  name="email" placeholder="Email" required/>
+        <input class="sign-input" type="password" name="password"  placeholder="Password" required/>
+        <button type="submit" class="sign-btn">Add </button>
+      <% end %>
   </div>
-  <div class="sidebar">
-      <ul>
-        <li><a href="/owner"  style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-book"></i></span>
-          <span class="title">Menus</span>
-          </a></li>
-        <li><a href="/userlist" style="text-decoration: none;">
-          <span class="icon"><i class="	fas fa-child"></i></span>
-          <span class="title">Users</span>
-          </a></li>
-        <li><a href="/clerklist" class="active" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-male"></i></span>
-          <span class="title">Clerks</span>
-          </a></li>
-        <li><a href="/salesdash" style="text-decoration: none;">
-          <span class="icon"><i class="fab fa-btc"></i></span>
-          <span class="title">Sales Report</span>
-          </a></li>
-        <li><a href="/orderdash" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-cart-plus"></i></span>
-          <span class="title">Orders</span>
-          </a></li>
-    </ul>
-  </div>
-  <div class="main_container">
-      <div class="user-list-container">
-      <div class="clerk-list-section">
-        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Clerks</h1>
-        <div class="user-list">
-          <ol>
-               <%clerk=User.clerk%>
-               <% if clerk.blank? %>
-               <li class="user-name">
-                  <div class="useritem-container">
-                    <p class="user-email">No Clerks added.</p>
-                    </div>
-                </li>
-               <% else %>
-               <%clerk.each do|clerk| %>
-                <li class="user-name">
-                  <div class="useritem-container">
-                    <h3><%=clerk.first_name.capitalize%></h3>
-                    <p class="user-email"><%= clerk.email%></p>
-                    <%= form_with(url: "/owner/#{clerk.id}" , method: "DELETE" ) do %>
-                    <button type="submit" class="delBtn"><i class="fas fa-trash-alt"></i></button>
-                    <% end %>
-                    </div>
-                </li> 
-                <%end%>
-               <% end %>
-          </ol>
+  <main class="owner">
+    <div class="wrapper">
+      <div class="top_navbar">
+         <div class="hamburger">
+           <div class="hamburger-logo">
+             <div class="one"></div>
+             <div class="two"></div>
+             <div class="three"></div>
+           </div>
+         </div>
+         <div class="top_menu">
+           <div class="logo">
+             <p>DASHBOARD</p>
+           </div>
+           <div class="logo" style="margin-left:auto;">
+              <p>SIGNOUT</p>
+           </div>
+           <ul> 
+             <li><a href="/signout" data-method="delete">
+                <i class="fas fa-user" ></i>
+              </a></li>
+           </ul>
         </div>
       </div>
+      <div class="sidebar">
+          <ul>
+            <li><a href="/owner"  style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-book"></i></span>
+              <span class="title">Menus</span>
+              </a></li>
+            <li><a href="/userlist" style="text-decoration: none;">
+              <span class="icon"><i class="	fas fa-child"></i></span>
+              <span class="title">Users</span>
+              </a></li>
+            <li><a href="/clerklist" class="active" style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-male"></i></span>
+              <span class="title">Clerks</span>
+              </a></li>
+            <li><a href="/salesdash" style="text-decoration: none;">
+              <span class="icon"><i class="fab fa-btc"></i></span>
+              <span class="title">Sales Report</span>
+              </a></li>
+            <li><a href="/orderdash" style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-cart-plus"></i></span>
+              <span class="title">Orders</span>
+              </a></li>
+          </ul>
       </div>
-      <div class="user-list-container">
-      <button class="addclerk-button" id="addClerk">Add Clerk</button>
+      <div class="main_container">
+          <div class="user-list-container">
+            <div class="clerk-list-section">
+              <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Clerks</h1>
+              <div class="user-list">
+                <ol>
+                    <%clerk=User.clerk%>
+                    <% if clerk.blank? %>
+                      <li class="user-name">
+                          <div class="useritem-container">
+                            <p class="user-email">No Clerks added.</p>
+                          </div>
+                      </li>
+                    <% else %>
+                      <%clerk.each do|clerk| %>
+                        <li class="user-name">
+                          <div class="useritem-container">
+                            <h3><%=clerk.first_name.capitalize%></h3>
+                            <p class="user-email"><%= clerk.email%></p>
+                            <%= form_with(url: "/owner/#{clerk.id}" , method: "DELETE" ) do %>
+                              <button type="submit" class="delBtn"><i class="fas fa-trash-alt"></i></button>
+                            <% end %>
+                          </div>
+                        </li> 
+                      <%end%>
+                    <% end %>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="user-list-container">
+            <button class="addclerk-button" id="addClerk">Add Clerk</button>
+          </div>
       </div>
-  </div>
-</div>
-</main>
+    </div>
+  </main>
 </section>
