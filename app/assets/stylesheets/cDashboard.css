@@ -44,36 +44,13 @@
     box-shadow: 28px 24px 66px -2px rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     margin: auto;
-    padding: 6%;
     margin-top: 10%;
     transition: 0.3s;
     display: flex;
 }
 
 .Pending-orders-cards:hover {
-    transform: scale(1.1);
-}
-
-.info-circle {
-    width: 35%;
-    height: 100%;
-    border-radius: 500px;
-    background-color: aliceblue;
-    position: relative
-}
-
-.info-circle:before {
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 500px;
-    background-color: #F73859;
-    position: absolute;
-    z-index: -1;
-    transition: 0.3s;
-    transform: scale(0.9);
+    transform: scale(1.05);
 }
 
 .Pending-orders-cards:hover .info-circle {
@@ -85,24 +62,19 @@
 }
 
 .Pending-orders-cards:hover .info-header {
-    position: absolute;
-    top: 20%;
-    left: 20%;
     color: #F73859;
     font-size: 3.5rem;
     font-weight: bold;
+    text-align: right;
     font-family: 'Montserrat', sans-serif;
 }
 
 .info-header {
-    position: absolute;
-    top: 7%;
-    left: 6%;
-    bottom: 15%;
-    right: 15%;
+    text-align: center;
     color: #F73859;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
+    text-align: right;
     font-family: 'Montserrat', sans-serif;
     transition: 0.3s;
 }
@@ -112,11 +84,13 @@
     height: 100%;
     text-align: left;
     color: #F73859;
-    font-size: 1.8rem;
-    padding-top: 6%;
-    padding-left: 5%;
+    font-size: 1.7rem;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
+}
+
+.info-header-div {
+    text-align: left;
 }
 
 .Pending-orders-details {
@@ -239,6 +213,7 @@
     width: 100%;
     margin-bottom: 1%;
     padding: 1% 3%;
+    align-items: center;
 }
 
 .clerk-sec-pennding-orders-info:hover {
@@ -282,11 +257,18 @@
     color: white;
     padding: 1%;
     transition: 0.2s;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .delivered-Btn:hover {
     font-size: 0;
     background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .delivered-Btn:hover:after {
@@ -312,6 +294,15 @@
 
 .delvBtn:hover {
     background-color: aliceblue;
+    color: green;
+}
+
+.delvBtn:hover:after {
+    content: attr(data-hover);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
     color: green;
 }
 
@@ -385,4 +376,22 @@
 
 .invisible {
     visibility: hidden;
+}
+
+.no-pending-order {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pending-card-row {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

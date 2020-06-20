@@ -12,6 +12,7 @@
         }
         
         .cart-box {
+            position: relative;
             width: 150vh;
             height: 80vh;
             background-color: white;
@@ -144,14 +145,14 @@
             margin: auto 0;
             padding-left: 3%;
             color: #F73859;
-            transition: 0.1s;
+            transition: 0.2s;
         }
         
         .cart-box-confirm-link:hover {
             text-decoration: none;
             border: none;
             color: #F73859;
-            font-size: 1.5rem;
+            transform: scale(1.025);
         }
         
         .cart-box-pay {

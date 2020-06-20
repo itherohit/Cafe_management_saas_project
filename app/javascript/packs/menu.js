@@ -72,6 +72,18 @@ function itemList(item) {
 
 
 let items = JSON.parse(localStorage.getItem('itemList'));
+let customer = document.querySelector(".customer-name");
+
+if (customer) {
+    if (localStorage.getItem('cartNumber') > 0) {
+        customer.classList.remove("invisible");
+        customer.classList.add("visible");
+    } else {
+        customer.classList.remove("visible");
+        customer.classList.add("invisible");
+    }
+}
+
 
 function onloadcartNumber() {
     let itemNumber = parseInt(localStorage.getItem('cartNumber'));
@@ -96,12 +108,14 @@ function btnEvent() {
     for (let i = 0; i < plusBtn.length; i++) {
         plusBtn[i].addEventListener('click', () => {
             items[i].incart += 1;
+            localStorage.setItem('itemList', JSON.stringify(items));
             document.querySelectorAll('.cart-box-item-quantity-number')[i].innerHTML = items[i].incart;
             document.querySelectorAll('.cart-box-item-total')[i].innerHTML = items[i].incart * items[i].price;
             totalCost();
         })
         minusBtn[i].addEventListener('click', () => {
             items[i].incart -= 1;
+            localStorage.setItem('itemList', JSON.stringify(items));
             if (items[i].incart) {
                 document.querySelectorAll('.cart-box-item-quantity-number')[i].innerHTML = items[i].incart;
                 document.querySelectorAll('.cart-box-item-total')[i].innerHTML = items[i].incart * items[i].price;
@@ -175,6 +189,10 @@ function displayItems() {
     }
     document.querySelector('.cart-box-confirm-link').addEventListener('click', () => {
         items = JSON.stringify(items);
+        let customerName = document.getElementById("customerName");
+        if (customerName) {
+            document.cookie = "customer=" + customerName.value;
+        }
         localStorage.setItem('itemList', items);
         document.cookie = "items=" + items;
         document.cookie = "cost=" + localStorage.getItem('total');

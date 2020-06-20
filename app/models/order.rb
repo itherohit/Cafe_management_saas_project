@@ -1,6 +1,16 @@
 class Order < ApplicationRecord
     belongs_to :user
     has_many :order_items
+    def self.walkin
+        count = 0
+        pending = all.where(delivered_status: false)
+        pending.each do |pending|
+            if pending.user.role == "clerk"
+                count =count+1
+            end
+        end
+        return count
+    end
     def self.pending
         all.where(delivered_status: false).count
     end

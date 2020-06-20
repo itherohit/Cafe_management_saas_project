@@ -136,6 +136,7 @@ body {
     margin: 20px;
     padding: 10% 15%;
     border-color: #F73859;
+    transition: 0.3s;
 }
 
 .Order-now-link {
@@ -145,13 +146,13 @@ body {
     font-size: 30px;
     color: white;
     padding: 5%;
+    transition: 0.3s;
 }
 
 .Order-now-link:hover {
     text-decoration: none;
     transform: scale(1.1);
     color: yellow;
-    transition: 0.3s;
 }
 
 .Order-now:hover {
@@ -177,7 +178,7 @@ body {
     transition: 0.3s;
 }
 
-.feature_icon:hover {
+.features-section:hover>.feature_icon {
     transform: scale(1.2);
 }
 
@@ -321,10 +322,12 @@ body {
 
 .social-icon {
     font-size: 30px;
+    text-decoration: none;
 }
 
 .social-icon-link {
     padding: 4%;
+    color: rgb(90, 90, 90);
 }
 
 .f:hover {

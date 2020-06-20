@@ -1,42 +1,42 @@
 <%menu=Menu.active%>
-<% menu.each do |activemenu| %>
-  <% Category.all.each do |category| %>
-    <%item=Menuhelper.of_user(activemenu,category)%>
+  <% menu.each do |activemenu| %>
+    <% Category.all.each do |category| %>
+      <%item=Menuhelper.of_user(activemenu,category)%>
         <%if item.present? then%>
-  <div class="menu-items" id=<%= category.name[0] %>>
-    <div class="row justify-content-center flex">
-      <% i = 1 %>
-      <% item.each do |item| %>
-      <% menu=MenuItem.find(item.menu_item_id)%>
-      <% if i%4 == 1 && i!=1%>
-        <div class="menu-items container-fluid">
-        <div class="row justify-content-center">
-    <% end %>
-    <div class="col-sm-6 col-lg-3">
-      <div class="menu-card">
-        <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
-        <div class="menu-item-name">
-          <h3 class="menu-item-name-header"><%= menu.item_name %></h3>
-          <p class="menu-item-name-para"><%= menu.item_desciption %><p>
-          <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
-          <div class="menu-item-order-now">
-          <% if @current_user %>
-            <a class="menu-item-order-now-link add-cart" href="#/">Add to Cart</a>
-          <% else %>
-            <a class="menu-item-order-now-link add-cart-sign" href="#/" >Add to Cart</a>
-          <% end %>
-          </div>
-        </div>
+          <div class="menu-items" id=<%= category.name[0] %>>
+            <div class="row justify-content-center flex">
+              <% i = 1 %>
+              <% item.each do |item| %>
+              <% menu=MenuItem.find(item.menu_item_id)%>
+              <% if i%4 == 1 && i!=1%>
+                <div class="menu-items container-fluid">
+                <div class="row justify-content-center">
+              <% end %>
+              <div class="col-sm-6 col-lg-3">
+                <div class="menu-card">
+                  <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
+                    <div class="menu-item-name">
+                      <h3 class="menu-item-name-header"><%= menu.item_name %></h3>
+                      <p class="menu-item-name-para"><%= menu.item_desciption %><p>
+                      <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
+                    <div class="menu-item-order-now">
+                      <% if @current_user %>
+                        <a class="menu-item-order-now-link add-cart" href="#/">Add to Cart</a>
+                      <% else %>
+                        <a class="menu-item-order-now-link add-cart-sign" href="#/" >Add to Cart</a>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% if i%4 == 1 && i!=1%>
+              </div>
+              </div>
+           <%end%>
+          <% i = i+1 %>
+        <%end%>
+      </div>
     </div>
-  </div>
-  <% if i%4 == 1 && i!=1%>
-  </div>
-  </div>
-  <% end %>
-  <% i = i+1 %>
-<% end %>
-</div>
-</div>
-<% end %>
- <%end%>
   <%end%>
+<%end%>
+<%end%>

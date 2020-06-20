@@ -2,12 +2,12 @@
 <% menu.each do |menu| %>
   <% Category.all.each do |category| %>
     <%item=Menuhelper.of_user(menu,category)%>
-        <%if item.present? then%>
-    <div class="menu-category-name">
-      <div class="menu-category-name-link">
-        <a href="#<%= category.name[0] %>"><%= category.name %></a>
+    <%if item.present? then%>
+      <div class="menu-category-name">
+        <div class="menu-category-name-link">
+          <a href="#<%= category.name[0] %>"><%= category.name %></a>
+        </div>
       </div>
-    </div>
     <% end %>
-     <% end %>
+  <% end %>
 <% end %>

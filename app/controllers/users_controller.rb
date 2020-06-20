@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     def new
         user = User.new(
-          first_name: params[:first_name],
+          first_name: params[:first_name].capitalize,
           last_name: params[:last_name],
           email: params[:email],
           password: params[:password],

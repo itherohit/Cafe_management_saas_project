@@ -5,12 +5,29 @@ class CartController < ApplicationController
     def new
         items = JSON.parse(cookies[:items])
         totalcost = JSON.parse(cookies[:cost])
-        order = Order.create!(cost: totalcost, date: Date.today, user_id: @current_user.id, delivered_status: false)
+        customerName = cookies[:customer]
+        if customerName.empty?
+            order = Order.create!(
+                cost: totalcost, 
+                date: Date.today, 
+                user_id: @current_user.id,
+                delivered_status: false,
+                customer: @current_user.first_name
+            )
+        else
+            order = Order.create!(
+            cost: totalcost, 
+            date: Date.today, 
+            user_id: @current_user.id,
+            delivered_status: false,
+            customer: customerName.capitalize
+            )
+        end
         items.each do |item|
             OrderItem.create!(order_id: order.id, menu_id: item["id"], item_name: item["item_name"], item_price: item["price"], incart: item["incart"])
         end
-        flash[:session] = "Order Confirm"
-        redirect_to root_path
+        flash[:session] = "Order Confirm" 
+        redirect_to "/menus"
     end
 
     def show

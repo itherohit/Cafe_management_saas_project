@@ -83,8 +83,6 @@ for (let i = 0; i < order_list.length; i++) {
         };
         xhttp.open("GET", "/cart/" + order_list[i].id, true);
         xhttp.send();
-
-
     })
 
 }
