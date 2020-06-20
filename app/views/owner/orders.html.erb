@@ -1,93 +1,92 @@
 <section class="owner">
 
-<div class="wrapper">
-    <div class="top_navbar">
-    <div class="hamburger">
-    <div class="hamburger-logo">
-       <div class="one"></div>
-       <div class="two"></div>
-       <div class="three"></div>
-    </div>
-    </div>
-    <div class="top_menu">
-      <div class="logo">
-         <p>DASHBOARD</p>
+  <div class="wrapper">
+      <div class="top_navbar">
+        <div class="hamburger">
+          <div class="hamburger-logo">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+          </div>
+        </div>
+        <div class="top_menu">
+          <div class="logo">
+            <p>DASHBOARD</p>
+          </div>
+          <div class="logo" style="margin-left:auto;">
+            <p>SIGNOUT</p>
+          </div>
+          <ul>
+            <li><a href="/signout" data-method="delete">
+              <i class="fas fa-user" ></i>
+              </a></li>
+          </ul>
+        </div>
       </div>
-      <div class="logo" style="margin-left:auto;">
-         <p>SIGNOUT</p>
+      <div class="sidebar">
+          <ul>
+            <li><a href="/owner" style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-book"></i></span>
+              <span class="title">Menus</span>
+              </a></li>
+            <li><a href="/userlist"style="text-decoration: none;">
+              <span class="icon"><i class="	fas fa-child"></i></span>
+              <span class="title">Users</span>
+              </a></li>
+            <li><a href="/clerklist"style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-male"></i></span>
+              <span class="title">Clerks</span>
+              </a></li>
+            <li><a href="/salesdash"style="text-decoration: none;" >
+              <span class="icon"><i class="fab fa-btc"></i></span>
+              <span class="title">Sales Report</span>
+              </a></li>
+            <li><a href="/orderdash" class="active" style="text-decoration: none;">
+              <span class="icon"><i class="fas fa-cart-plus"></i></span>
+              <span class="title">Orders</span>
+              </a></li>
+          </ul>
       </div>
-      <ul>
-        <li><a href="/signout" data-method="delete">
-          <i class="fas fa-user" ></i>
-          </a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="sidebar">
-      <ul>
-        <li><a href="/owner" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-book"></i></span>
-          <span class="title">Menus</span>
-          </a></li>
-        <li><a href="/userlist"style="text-decoration: none;">
-          <span class="icon"><i class="	fas fa-child"></i></span>
-          <span class="title">Users</span>
-          </a></li>
-        <li><a href="/clerklist"style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-male"></i></span>
-          <span class="title">Clerks</span>
-          </a></li>
-        <li><a href="/salesdash"style="text-decoration: none;" >
-          <span class="icon"><i class="fab fa-btc"></i></span>
-          <span class="title">Sales Report</span>
-          </a></li>
-        <li><a href="/orderdash" class="active" style="text-decoration: none;">
-          <span class="icon"><i class="fas fa-cart-plus"></i></span>
-          <span class="title">Orders</span>
-          </a></li>
-    </ul>
-  </div>
-  <div class="main_container">
-      <% report_form=true%>
-      <%= form_with url: "/orderreport", method: :get,local: true do |form| %>
-        <div class="Sales-date" >
-             <select id="user_id" name="user" class="select-user">
-                  <option disabled selected value>Choose a User</option>
-                  <%user=User.customer%>
-                  <% user.each do |user| %> 
-                  <option value="<%=user.id%>"><%=user.first_name%></option>
-                  <%end%>
-            </select>
-            <h1 class="sales-header">FROM</h2>
-            <%= form.date_field :from,class: "Addsales-date"%>
-            <h1 class="sales-header">TO</h2>
-            <%= form.date_field :to,class: "Addsales-date"%>
-            <input class="Addsales-button" type="submit" value="view" >
-         </div>
-      <%end%>
-    
-    <div class="allorder"> 
-      <table id="customers">
-        <tr>
-          <th>Order ID</th>
-          <th>NAME</th>
-          <th>DATE</th>
-          <th>AMOUNT</th>
-          <th>STATUS</th>
-          <th>INVOICE</th>
-        </tr>
-        <%Order.sort_date.each do|order| %>
-        <tr>
-                <td><%=order.id%></td>
-                <td><%= order.user.first_name %></td>
-                <td><%=order.date.to_time.strftime('%B %e %Y')%></td>
-                <td><%=order.cost%></td>
-                <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
-                <td><%= link_to "Generate", "/invoice?id=#{order.id}" %></td>
-        </tr>
-        <%end%> 
-      </table>
-    
-    </div>
-  </div>
+      <div class="main_container">
+          <% report_form=true%>
+          <%= form_with url: "/orderreport", method: :get,local: true do |form| %>
+            <div class="Sales-date" >
+                <select id="user_id" name="user" class="select-user">
+                      <option disabled selected value>Choose a User</option>
+                      <%user=User.customer%>
+                      <% user.each do |user| %> 
+                        <option value="<%=user.id%>"><%=user.first_name%></option>
+                      <%end%>
+                </select>
+                <h1 class="sales-header">FROM</h2>
+                <%= form.date_field :from,class: "Addsales-date"%>
+                <h1 class="sales-header">TO</h2>
+                <%= form.date_field :to,class: "Addsales-date"%>
+                <input class="Addsales-button" type="submit" value="view" >
+            </div>
+          <%end%>
+          <div class="allorder"> 
+            <table id="customers">
+              <tr>
+                <th>Order ID</th>
+                <th>NAME</th>
+                <th>DATE</th>
+                <th>AMOUNT</th>
+                <th>STATUS</th>
+                <th>INVOICE</th>
+              </tr>
+              <%Order.sort_date.each do|order| %>
+                <tr>
+                    <td><%=order.id%></td>
+                    <td><%= order.user.first_name %></td>
+                    <td><%=order.date.to_time.strftime('%B %e %Y')%></td>
+                    <td><%=order.cost%></td>
+                    <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
+                    <td><%= link_to "Generate", "/invoice?id=#{order.id}" %></td>
+                </tr>
+              <%end%> 
+            </table>
+          
+          </div>
+      </div>
 </section>
