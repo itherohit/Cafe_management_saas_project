@@ -1,15 +1,79 @@
+<div class="order-list-sec invisible">
+  <div class="Order-list-header">
+    <p>Order</p>
+    <p class="OrderDate"></p>
+    <p class="OrderTime"></p>
+    <button class="order-list-closeBtn "><i class="far fa-times-circle"></i></button>
+  </div>
+  <div class="order-list-items">
+  </div>
+  <p class="order-list-pay">To Pay : <i class="fas fa-rupee-sign"></i><span class="order-list-price"></span> </p>
+</div>
+<section class="nav-bar-section">
+    <nav class="navbar navbar-dark nav-color navbar-expand-lg fixed-top">
+      <a class="navbar-brand animated tada delay-5s" href="/"><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon nav-button"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="/menus">Menu</a>
+          </li>
+          <% if @current_user %>
+            <% if @current_user.role == "clerk" %>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+            <% end %>
+            <% if @current_user.role == "owner" %>
+              <li class="nav-item">
+                <a class="nav-link" href="/owner">Dashboard</a>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <a class="nav-link active" href="/orders">Orders</a>
+            </li> 
+            <li class="nav-item">
+              <div class="cart-div">
+                <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                <p class="cart-number"></p>
+              </div>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
+            </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
+              </li>
+          <% end %>  
+        </ul>
+      </div>
+    </nav>
+  </section>
 <section class="order-section">
   <div class="user-list-container">
     <div class="user-list-section">
       <h1 style="color: #E62E5D;margin-left: auto;font-size:40px; font-weight: bold;" align="center">Orders</h1>
-        <% @orders.each do |order| %>
-          <div class="order-list">
-            <p class="clerk-sec-pennding-orders-order"  id="<%= order.id %>"><i class="fas fa-list"></i> <%=order.order_items[0].item_name %> ...</p>
-            <p class="clerk-sec-pennding-date"><%= order.created_at.to_s(:short) %></p>
-            <button class="order-list-Btn">
-            <%= order.delivered_status ? "Delivered" : "Pending" %>
-            </button>
+        <% if @orders.empty? %>
+          <div class="orders-sec-empty">
+            <p  class="cart-box-empty">No Orders from you. Are you not hungry?</p>
+            <a class="cart-box-empty-link" href="/menus">See Menu</a>
           </div>
+        <% else %>
+          <% @orders.each do |order| %>
+            <div class="order-list">
+              <p class="clerk-sec-pennding-orders-order"  id="<%= order.id %>"><i class="fas fa-list"></i> <%=order.order_items[0].item_name %> ...</p>
+              <p class="clerk-sec-pennding-date"><%= order.created_at.to_s(:short) %></p>
+              <button class="order-list-Btn">
+              <%= order.delivered_status ? "Delivered" : "Pending" %>
+              </button>
+            </div>
+          <% end %>
         <% end %>
     </div>
   </div>

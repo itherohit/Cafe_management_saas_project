@@ -3,6 +3,6 @@ class SubscribeController < ApplicationController
     def new
         subscribe = Subscribe.create!(email: params[:email])
         flash[:session] = "Subscribed"
-        redirect_to "/menus"
+        redirect_to menus_path
     end
 end

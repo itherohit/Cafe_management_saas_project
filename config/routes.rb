@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
+  root "users#index"
   get "/userlist" => "owner#user"
   get "/clerklist" => "owner#clerk"
   get "/owner/delete" => "owner#delete"
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post "/users/clerk" => "users#clerk"
   post "/subscribe" => "subscribe#new"
   get "/orders" => "orders#index"
+  get "/subscribed" => "owner#subscribed"
   resources :users
   resources :menus
   resources :categories

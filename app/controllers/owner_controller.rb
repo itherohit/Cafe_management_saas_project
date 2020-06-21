@@ -19,7 +19,10 @@ class OwnerController < ApplicationController
     def order
         render "orders"
     end
-    
+    def subscribed
+      render "subscribed"
+  end
+
     def delete
       id = params[:category]
       category=Category.find(id)
@@ -97,7 +100,7 @@ class OwnerController < ApplicationController
       newm=Menu.find(id)
       newm.active_menu= true
       newm.save!
-      render"menus"
+      render "menus"
     end
 
   end

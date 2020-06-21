@@ -395,3 +395,20 @@
     align-items: center;
     justify-content: center;
 }
+
+.orders-sec-empty {
+    text-align: center;
+    width: 100%;
+}
+
+.useritem-container-name {
+    width: 30%;
+    max-width: 30%;
+    text-align: center;
+}
+
+.useritem-container-email {
+    width: 70%;
+    max-width: 70%;
+    text-align: center;
+}

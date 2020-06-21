@@ -27,7 +27,7 @@ class CartController < ApplicationController
             OrderItem.create!(order_id: order.id, menu_id: item["id"], item_name: item["item_name"], item_price: item["price"], incart: item["incart"])
         end
         flash[:session] = "Order Confirm" 
-        redirect_to "/menus"
+        redirect_to menus_path
     end
 
     def show

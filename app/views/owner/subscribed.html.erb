@@ -34,7 +34,7 @@
             <span class="icon"><i class="fas fa-book"></i></span>
             <span class="title">Menus</span>
             </a></li>
-          <li><a href="/userlist" class="active" style="text-decoration: none;">
+          <li><a href="/userlist" style="text-decoration: none;">
             <span class="icon"><i class="	fas fa-child"></i></span>
             <span class="title">Users</span>
             </a></li>
@@ -46,7 +46,7 @@
             <span class="icon"><i class="fab fa-btc"></i></span>
             <span class="title">Sales Report</span>
             </a></li>
-          <li><a href="/subscribed" style="text-decoration: none;">
+          <li><a href="#"  class="active" style="text-decoration: none;">
             <span class="icon"><i class="far fa-paper-plane"></i></span>
             <span class="title">Subscribed</span>
             </a></li>
@@ -62,23 +62,24 @@
             <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Customers</h1>
             <div class="user-list">
               <ol>
-                  <%user=User.customer()%>
-                  <% if user.blank? %>
+                  <%users=Subscribe.all%>
+                  <% if users.blank? %>
                     <li class="user-name">
                         <div class="useritem-container">
-                          <p class="user-email">No Customers yet.</p>
+                          <p class="user-email">No Subscribers yet.</p>
                         </div>
                     </li>
                   <% else %>
-                    <%user.each do|user| %>
+                    <%users.each do|user| %>
                       <li class="user-name">
                         <div class="useritem-container">
                           <div class="useritem-container-name">
-                            <h3><%=user.first_name.capitalize%></h3>
+                            <h3><a href="mailto:<%= user.email %>"><i class="far fa-paper-plane"></i></a></h3>
                           </div>
                           <div class="useritem-container-email">
                             <p class="user-email"><%= user.email%></p>
                           </div>
+                        </div>
                       </li> 
                     <%end%>
                   <%end%>

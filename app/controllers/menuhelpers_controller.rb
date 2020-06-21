@@ -13,7 +13,7 @@ class MenuhelpersController < ApplicationController
             mh.save!
         end
         flash[:session] = name + " Created"
-        redirect_to "/menusdash"
+        redirect_to menusdash_path
     end
     def update
         menu=params[:menu]
@@ -21,7 +21,7 @@ class MenuhelpersController < ApplicationController
         i=MenuItem.find(item)
         mh=Menuhelper.new(menu_id: menu,menu_item_id: item,category_id: i.category_id)
         mh.save!
-        redirect_to "/menusdash"
+        redirect_to menusdash_path
     end
 
     def edit
@@ -29,7 +29,7 @@ class MenuhelpersController < ApplicationController
         item = Menuhelper.find(id)
         flash[:session] = "Item Deleted"
         item.delete
-        redirect_to "/menusdash"
+        redirect_to menusdash_path
     end
 
     def destroy
@@ -38,7 +38,7 @@ class MenuhelpersController < ApplicationController
         flash[:session] = menu.name + " Deleted"
         menu.menuhelpers.delete_all
         menu.delete
-        redirect_to "/menusdash"
+        redirect_to menusdash_path
     end
 
 end

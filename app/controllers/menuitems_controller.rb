@@ -26,7 +26,7 @@ class MenuitemsController < ApplicationController
         menu = Menu.find(menu_id)
         menu.active = true
         menu.save
-        redirect_to "/menusdash"
+        redirect_to menusdash_path
     end
 
     def destroy
