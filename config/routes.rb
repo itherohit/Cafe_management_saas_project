@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "users#index"
+  get "/" => "users#index"
   get"/userlist" => "owner#user"
   get"/clerklist" => "owner#clerk"
   get"/owner/delete" => "owner#delete"
