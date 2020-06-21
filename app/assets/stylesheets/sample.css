@@ -316,7 +316,7 @@
     }
     
     .collapsed .main_container {
-        width: (100% - 70px);
+        width: calc(100% - 70px);
         margin-left: 70px;
         height: 100%;
     }
