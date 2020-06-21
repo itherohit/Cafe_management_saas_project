@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "users#index"
   get"/userlist" => "owner#user"
   get"/clerklist" => "owner#clerk"
   get"/owner/delete" => "owner#delete"
@@ -21,5 +22,4 @@ Rails.application.routes.draw do
   resources :owner
   resources :menuhelpers
   get "/signout" => "users#destroy", as: :destroy_session
-  root "users#index"
 end
