@@ -78,6 +78,11 @@
                 <a class="nav-link" href="/dashboard">Dashboard</a>
               </li>
             <% end %>
+            <% if @current_user.role == "owner" %>
+              <li class="nav-item">
+                <a class="nav-link" href="/owner">Dashboard</a>
+              </li>
+            <% end %>
             <li class="nav-item">
               <a class="nav-link" id="sign-in-link" href="#">Orders</a>
             </li> 
