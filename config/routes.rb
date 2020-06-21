@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get"/menudelete" => "menus#del"
   post "/users/clerk" => "users#clerk"
   post "/subscribe" => "subscribe#new"
+  get "/orders" => "orders#index"
   resources :users
   resources :menus
   resources :categories

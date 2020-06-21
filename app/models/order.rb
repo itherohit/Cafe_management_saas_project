@@ -26,4 +26,5 @@ class Order < ApplicationRecord
     def self.sort_date
         all.order('date DESC')
     end
+
 end
