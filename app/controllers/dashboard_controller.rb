@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
     skip_before_action :ensure_user_logged_in
-    before_action :check_clerk
+    before_action :check_clerk_or_owner
     def index
         render "index"
     end

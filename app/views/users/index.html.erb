@@ -81,18 +81,25 @@
             </li>
           <% end %>
           <% if @current_user %>
-            <% if @current_user.role == "clerk" %>
+            <% if @current_user.role == "customer" %>
+              <li class="nav-item">
+                <a class="nav-link" href="/orders">Orders</a>
+              </li>
+            <% elsif @current_user.role == "clerk" %>
               <li class="nav-item">
                 <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/orders">Orders</a>
               </li>
             <% elsif @current_user.role == "owner" %>
               <li class="nav-item">
                 <a class="nav-link" href="/owner">Dashboard</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Orders</a>
+              </li>
             <% end %>
-            <li class="nav-item">
-              <a class="nav-link" href="/orders">Orders</a>
-            </li>
             <li class="nav-item">
               <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
             </li>
