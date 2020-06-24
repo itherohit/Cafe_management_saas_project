@@ -115,7 +115,7 @@
 </section>
 
 <script>
-  window.onload = function() {
+function chart() {
     var sales = <%= @sales_data %>;
     var sales_data = []
     for (var i = 0; i < sales.length; i++){
@@ -142,13 +142,11 @@
             name: "",
             dataPoints: sales_data
         }]
-    });
-
-    
+    }); 
     chart1.render();
 
 }
-
+chart();
 function myfunction() {
     if (document.getElementById("customers").style.display === "none")
         document.getElementById("customers").style.display = "block";
