@@ -11,6 +11,7 @@ class OwnerController < ApplicationController
         render "clerk"
     end
     def sales
+        @sales_data = Order.all.map{|item| item.cost}
         render "sales"
     end
     def menus

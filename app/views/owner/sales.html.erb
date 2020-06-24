@@ -25,7 +25,7 @@
             <p><a href="/menus" style="text-decoration: none; color: white;">Menu</a></p>
           </div>
           <div class="logo" style="margin-left:auto;">
-            <p><a href="/signout" style="text-decoration: none; color: white;">SIGNOUT</a></p>
+            <p><a href="/signout" id="sign-out" style="text-decoration: none; color: white;">SIGNOUT</a></p>
           </div>
           <ul>
             <li><a href="/signout" data-method="delete">
@@ -66,10 +66,6 @@
           <div class="main_containerchart">
             <div class="item-chart">
                 <div id="chartContainer1" style="height: 400px; width: 600px;" ></div>
-                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-            </div>
-            <div class="item-chart">
-                <div id="chartContainer2" style="height: 400px; width: 600px;" ></div>
                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
             </div>
           </div>
@@ -117,3 +113,46 @@
     </div>
   </main>    
 </section>
+
+<script>
+  window.onload = function() {
+    var sales = <%= @sales_data %>;
+    var sales_data = []
+    for (var i = 0; i < sales.length; i++){
+      sales_data.push({x:i+1,y: sales[i]});
+    }
+    var chart1 = new CanvasJS.Chart("chartContainer1", {
+        animationEnabled: true,
+        title: {
+            text: "Orders v Cost"
+        },
+        axisY: {
+            title: "COST (Rs.)"
+        },
+        axisX: {
+            title: "Orders"
+        },
+        toolTip: {
+            shared: true
+        },
+        data: [{
+            type: "stackedArea",
+            showInLegend: true,
+            toolTipContent: "<span style=\"color:#4F81BC\"><strong>{name}: </strong></span> {y}",
+            name: "",
+            dataPoints: sales_data
+        }]
+    });
+
+    
+    chart1.render();
+
+}
+
+function myfunction() {
+    if (document.getElementById("customers").style.display === "none")
+        document.getElementById("customers").style.display = "block";
+    else
+        document.getElementById("customers").style.display = "none";
+}
+</script>

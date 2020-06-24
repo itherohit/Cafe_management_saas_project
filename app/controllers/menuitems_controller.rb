@@ -33,7 +33,7 @@ class MenuitemsController < ApplicationController
         id = params[:id]
         menu_item = MenuItem.find(id)
         menu_helper_item = Menuhelper.where(menu_item_id: id)
-        flash[:session] = menu_item.capitalize + " Deleted"
+        flash[:session] = menu_item.item_name.capitalize + " Deleted"
         menu_helper_item.delete_all
         menu_item.delete
         redirect_to owner_index_path

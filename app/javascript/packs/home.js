@@ -1,3 +1,7 @@
+window.onload = () => {
+    document.getElementById('loader').classList.add("invisible");
+}
+
 window.onscroll = () => {
     const nav = document.querySelector('.navbar');
     if (window.scrollY >= 200)
@@ -6,6 +10,14 @@ window.onscroll = () => {
         nav.classList.remove("nav-scrolled");
 }
 
+
+let signOut = document.querySelectorAll("#sign-out");
+
+for (let i = 0; i < signOut.length; i++) {
+    signOut[i].addEventListener('click', () => {
+        localStorage.clear();
+    })
+}
 
 let flash = document.querySelector('.falsh-message ');
 let flashBtn = document.querySelector('.flash-closeBtn');

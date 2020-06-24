@@ -5,7 +5,7 @@ class Order < ApplicationRecord
         count = 0
         pending = all.where(delivered_status: false)
         pending.each do |pending|
-            if pending.user.role == "clerk"
+            if pending.user.role != "customer"
                 count =count+1
             end
         end

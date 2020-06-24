@@ -64,7 +64,10 @@ function orderitems(order_json) {
     document.querySelector('.OrderDate').innerHTML = order_json["Date"];
 }
 
-window.onload = startTime();
+window.onload = () => {
+    document.getElementById('loader').classList.add("invisible");
+    startTime();
+}
 
 function startTime() {
     var today = new Date();

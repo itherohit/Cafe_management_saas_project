@@ -35,9 +35,13 @@ class MenuhelpersController < ApplicationController
     def destroy
         id = params[:menu]
         menu = Menu.find(id)
-        flash[:session] = menu.name + " Deleted"
-        menu.menuhelpers.delete_all
-        menu.delete
+        if Menu.active().first.id == menu.id
+            flash[:session] = "Menu is Active"
+        else
+            flash[:session] = menu.name + " Deleted"
+            menu.menuhelpers.delete_all
+            menu.delete
+        end
         redirect_to menusdash_path
     end
 
